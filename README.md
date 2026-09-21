@@ -20,7 +20,7 @@ https://jeffreydavidson.github.io/kneadit-landing/.
 ## Application links
 
 The current static page points registration, resources, directory, legal pages,
-and contact submission to `https://getkneadit.app`. Update those URLs when the
+and contact submission to `https://app.getkneadit.app`. Update those URLs when the
 production application and landing-site domains are finalized.
 
 ## Source boundary
