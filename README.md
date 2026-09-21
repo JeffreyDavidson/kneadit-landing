@@ -14,8 +14,8 @@ From this directory, serve `public/` with any static file server, for example:
 php -S localhost:8080 -t public
 ```
 
-The current preview is published at
-https://jeffreydavidson.github.io/kneadit-landing/.
+The production marketing site is published at
+https://kneadit.app/.
 
 ## Application links
 

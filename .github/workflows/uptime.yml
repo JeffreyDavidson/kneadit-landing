@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check homepage
-        run: curl --fail --silent --show-error --location --max-time 20 --output /dev/null https://jeffreydavidson.github.io/kneadit-landing/
+        run: curl --fail --silent --show-error --location --max-time 20 --output /dev/null https://kneadit.app/
