@@ -15,7 +15,7 @@ php -S localhost:8080 -t public
 ```
 
 The production marketing site is published at
-https://kneadit.app/.
+https://getkneadit.app/.
 
 ## Application links
 
