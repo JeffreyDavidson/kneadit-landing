@@ -1,0 +1,16 @@
+name: Check marketing site
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check homepage
+        run: curl --fail --silent --show-error --location --max-time 20 --output /dev/null https://jeffreydavidson.github.io/kneadit-landing/
