@@ -104,9 +104,9 @@
                 <div class="feature-copy">
                     <h2 id="features-title">Make the business<br />part feel easier.</h2>
                     <div class="feature-details">
-                        <article><h3>Your storefront. Your customers.</h3><p>A place for customers to order, with the details you need to make their next bake feel personal.</p></article>
-                        <article><h3>Every order, accounted for.</h3><p>Keep order statuses, invoices, and payments connected. Spend less time chasing the details through messages.</p></article>
-                        <article><h3>Recipes that make business sense.</h3><p>Bring recipe costing and finance tracking together, so your pricing starts with your numbers.</p></article>
+                        <details open><summary>Your storefront. Your customers.</summary><p>A place for customers to order, with the details you need to make their next bake feel personal.</p></details>
+                        <details><summary>Every order, accounted for.</summary><p>Keep order statuses, invoices, and payments connected. Spend less time chasing the details through messages.</p></details>
+                        <details><summary>Recipes that make business sense.</summary><p>Bring recipe costing and finance tracking together, so your pricing starts with your numbers.</p><a class="text-link" href="#costing">Explore a batch example</a></details>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,10 @@
                 <p class="small-note">An illustrative calculator, not a screenshot of the app. KneadIt brings recipe costing into your bakery workflow.</p>
             </div>
             <form class="costing-form" id="costingForm" aria-label="Illustrative batch costing calculator">
-                <div class="calculator-heading"><h3>Try a batch</h3><span>Chocolate chip cookies</span></div>
+                <div class="calculator-heading">
+                    <img src="images/cookie-batch.webp" alt="Golden chocolate chip cookies on parchment" width="320" height="320" loading="lazy" decoding="async" />
+                    <div><h3>Try a batch</h3><p>Chocolate chip cookies</p></div>
+                </div>
                 <fieldset>
                     <legend>What goes into it</legend>
                     <div class="cost-inputs">
@@ -134,10 +137,10 @@
                 </fieldset>
                 <div class="costing-results" aria-live="polite" aria-atomic="true">
                     <div><span>Cost per cookie</span><output id="unitCost">$1.42</output></div>
-                    <div><span>Batch profit</span><output id="batchProfit">$26.00</output></div>
+                    <div><span id="profitLabel">Batch profit</span><output id="batchProfit">$26.00</output></div>
                     <p id="costingNote">$60.00 in sales, less $34.00 in costs.</p>
                 </div>
-                <p class="calculator-note">Example only. Does not include taxes, fees, or other overhead.</p>
+                <div class="calculator-footer"><p class="calculator-note">Example only. Excludes taxes, fees, and other overhead.</p><button type="button" class="reset-example" id="resetExample">Reset example</button></div>
                 <noscript><p>Enable JavaScript to update this example with your own numbers.</p></noscript>
             </form>
         </section>
@@ -148,25 +151,25 @@
                 <div class="pricing-grid">
                     <article class="price-card">
                         <h3>Starter</h3><p>For getting your bakery organized.</p><p class="price">$9<span>/month</span></p>
-                        <a href="https://app.getkneadit.app/register" class="button button-outline" aria-label="Start free with Starter">Start free</a>
                         <ul><li>Order management</li><li>Customer storefront</li><li>Recipe costing</li></ul>
+                        <a href="https://app.getkneadit.app/register" class="button button-outline" aria-label="Start free with Starter">Start free</a>
                     </article>
                     <article class="price-card featured-price">
                         <h3>Growth</h3><p>For bakers ready to build momentum.</p><p class="price">$19<span>/month</span></p>
-                        <a href="https://app.getkneadit.app/register" class="button" aria-label="Start free with Growth">Start free</a>
                         <ul><li>Everything in Starter</li><li>Invoicing and payment tracking</li><li>Finance and profit insights</li></ul>
+                        <a href="https://app.getkneadit.app/register" class="button" aria-label="Start free with Growth">Start free</a>
                     </article>
                     <article class="price-card">
                         <h3>Pro</h3><p>For a bakery with more to manage.</p><p class="price">$39<span>/month</span></p>
-                        <a href="https://app.getkneadit.app/register" class="button button-outline" aria-label="Start free with Pro">Start free</a>
                         <ul><li>Everything in Growth</li><li>Marketing and customer tools</li><li>Advanced bakery workflows</li></ul>
+                        <a href="https://app.getkneadit.app/register" class="button button-outline" aria-label="Start free with Pro">Start free</a>
                     </article>
                 </div>
             </div>
         </section>
 
         <section class="section wrap faq-section" id="faq" aria-labelledby="faq-title">
-            <h2 id="faq-title">Good questions.</h2>
+            <div><h2 id="faq-title">Good questions.</h2><p>Starting something new should feel simple. Here are a few things to know.</p><a href="#contact" class="text-link">Ask us something else</a></div>
             <div class="faq-list">
                 <details open><summary>Is KneadIt only for home bakers?</summary><p>It is built specifically for cottage food and home bakery businesses, the kind run from your own kitchen, on your own schedule.</p></details>
                 <details><summary>Do I need to install anything?</summary><p>No. KneadIt runs in your browser on your phone, tablet, or laptop. There is no special hardware or app to install.</p></details>
@@ -188,10 +191,12 @@
             </div>
         </section>
 
-        <section class="final-cta wrap" aria-labelledby="cta-title">
+        <section class="final-cta" aria-labelledby="cta-title">
+            <div class="wrap">
             <h2 id="cta-title">Here's to your next batch.</h2>
             <a href="https://app.getkneadit.app/register" class="button">Start your free trial</a>
             <p>30 days free. No credit card required.</p>
+            </div>
         </section>
     </main>
     <footer class="wrap site-footer">

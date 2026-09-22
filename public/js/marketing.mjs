@@ -51,15 +51,17 @@ if (typeof document !== 'undefined') {
     const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
     const unitCost = document.getElementById('unitCost');
     const batchProfit = document.getElementById('batchProfit');
+    const profitLabel = document.getElementById('profitLabel');
     const costingNote = document.getElementById('costingNote');
 
     costingForm.addEventListener('submit', (event) => event.preventDefault());
-    costingForm.addEventListener('input', () => {
+    function updateCosting() {
         const inputs = [...costingForm.querySelectorAll('input')];
         const values = Object.fromEntries(inputs.map((input) => [input.name, input.valueAsNumber]));
         const result = inputs.every((input) => input.validity.valid) ? calculateBatch(values) : null;
 
         if (!result) {
+            profitLabel.textContent = 'Batch profit';
             unitCost.textContent = 'N/A';
             batchProfit.textContent = 'N/A';
             costingNote.textContent = 'Enter non-negative costs and a whole batch quantity of at least 1.';
@@ -67,8 +69,15 @@ if (typeof document !== 'undefined') {
         }
 
         unitCost.textContent = currency.format(result.unitCost);
-        batchProfit.textContent = currency.format(result.profit);
+        profitLabel.textContent = result.profit < 0 ? 'Batch loss' : 'Batch profit';
+        batchProfit.textContent = currency.format(Math.abs(result.profit));
         costingNote.textContent = `${currency.format(result.revenue)} in sales, less ${currency.format(result.totalCost)} in costs.`;
+    }
+
+    costingForm.addEventListener('input', updateCosting);
+    document.getElementById('resetExample').addEventListener('click', () => {
+        costingForm.reset();
+        updateCosting();
     });
 
     const contactForm = document.getElementById('contactForm');

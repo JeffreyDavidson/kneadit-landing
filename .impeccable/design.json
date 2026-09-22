@@ -1,11 +1,9 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-22T01:56:47Z",
+  "generatedAt": "2026-09-22T02:14:49.574Z",
   "title": "Design System: KneadIt",
   "extensions": {
-    "shadows": [
-      { "name": "calculator", "value": "0 12px 32px #34201908", "purpose": "Soft elevation on the calculator panel only." }
-    ],
+    "shadows": [],
     "motion": [
       { "name": "button-transition", "value": "background .18s, transform .18s", "purpose": "Control feedback; omitted timing function uses CSS ease." },
       { "name": "button-press", "value": "translateY(1px)", "purpose": "Active button feedback." },
@@ -14,7 +12,8 @@
     ],
     "breakpoints": [
       { "name": "max-width", "value": "1050px" },
-      { "name": "max-width-mobile", "value": "760px" }
+      { "name": "max-width-mobile", "value": "760px" },
+      { "name": "max-width-narrow", "value": "380px" }
     ]
   },
   "components": [
@@ -24,7 +23,7 @@
       "refersTo": "button-primary",
       "description": "Main signup action. Samples inherit page tokens with light fallbacks. Dark appearance overrides hover to #ffe09a in the source stylesheet.",
       "html": "<a class=\"ds-primary\" href=\"#trial\">Start your free trial</a>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 24px;border:1px solid var(--button-bg,#342019);border-radius:var(--radius,8px);background:var(--button-bg,#342019);color:var(--button-text,#fffaf1);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;white-space:nowrap;transition:background .18s,transform .18s}.ds-primary:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25)}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important}}"
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 24px;border:1px solid var(--button-bg,#342019);border-radius:var(--radius,8px);background:var(--button-bg,#342019);color:var(--button-text,#fffaf1);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;white-space:nowrap;transition:background .18s,transform .18s}.ds-primary:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25)}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important}}@media(max-width:760px){.ds-primary{font-size:1rem}}"
     },
     {
       "name": "Compact button",
@@ -32,7 +31,7 @@
       "refersTo": "button-small",
       "description": "Compact filled action in navigation; minimum height 44px.",
       "html": "<a class=\"ds-small\" href=\"#trial\">Start free</a>",
-      "css": ".ds-small{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border:1px solid var(--button-bg,#342019);border-radius:var(--radius,8px);background:var(--button-bg,#342019);color:var(--button-text,#fffaf1);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;transition:background .18s,transform .18s}.ds-small:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25)}.ds-small:active{transform:translateY(1px)}.ds-small:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-small{transition:none!important}}"
+      "css": ".ds-small{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border:1px solid var(--button-bg,#342019);border-radius:var(--radius,8px);background:var(--button-bg,#342019);color:var(--button-text,#fffaf1);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;transition:background .18s,transform .18s}.ds-small:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25)}.ds-small:active{transform:translateY(1px)}.ds-small:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-small{transition:none!important}}@media(max-width:760px){.ds-small{font-size:1rem}}"
     },
     {
       "name": "Outline button",
@@ -40,15 +39,15 @@
       "refersTo": "button-outline",
       "description": "Secondary plan action, filled on hover.",
       "html": "<a class=\"ds-outline\" href=\"#trial\">Start free</a>",
-      "css": ".ds-outline{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 24px;border:1px solid var(--line,#dfd1bf);border-radius:var(--radius,8px);background:transparent;color:var(--ink,#342019);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;transition:background .18s,transform .18s}.ds-outline:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25);color:var(--button-text,#fffaf1)}.ds-outline:active{transform:translateY(1px)}.ds-outline:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none!important}}"
+      "css": ".ds-outline{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 24px;border:1px solid var(--control-border,#907966);border-radius:var(--radius,8px);background:transparent;color:var(--ink,#342019);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;transition:background .18s,transform .18s}.ds-outline:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25);color:var(--button-text,#fffaf1)}.ds-outline:active{transform:translateY(1px)}.ds-outline:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none!important}}@media(max-width:760px){.ds-outline{font-size:1rem}}"
     },
     {
       "name": "Labeled input",
       "kind": "input",
       "refersTo": "input",
-      "description": "Shared contact/calculator field treatment; visible label, focus, and native invalid state.",
+      "description": "Shared contact/calculator field treatment: 16px input type, 48px minimum height, .875rem desktop labels and 16px mobile labels. The 3px focus outline uses a 2px offset.",
       "html": "<label class=\"ds-label\">Email address<input class=\"ds-input\" type=\"email\" autocomplete=\"email\" required></label>",
-      "css": ".ds-label{display:block;color:var(--ink,#342019);font:600 .78rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-input{display:block;width:100%;min-width:0;min-height:46px;margin-top:7px;padding:10px 12px;border:1px solid var(--control-border,#907966);border-radius:5px;background:var(--paper,#fffaf1);color:var(--ink,#342019);font:400 .94rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-input:focus{border-color:var(--accent,#8b3e25)}.ds-input:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}.ds-input:user-invalid{border-color:var(--error,#b12e25)}"
+      "css": ".ds-label{display:block;color:var(--ink,#342019);font:600 .875rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-input{display:block;width:100%;min-width:0;min-height:48px;margin-top:7px;padding:10px 12px;border:1px solid var(--control-border,#907966);border-radius:5px;background:var(--paper,#fffaf1);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-input:focus{border-color:var(--accent,#8b3e25)}.ds-input:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:2px}.ds-input:user-invalid{border-color:var(--error,#b12e25)}@media(max-width:760px){.ds-label{font-size:1rem}}"
     },
     {
       "name": "Navigation links",
@@ -61,22 +60,29 @@
       "name": "Pricing panel",
       "kind": "card",
       "refersTo": "price-card",
-      "description": "Flat bordered plan surface; Growth receives butter fill. Sample excludes plan prices and entitlements pending product verification.",
+      "description": "Flat bordered plan surface; Growth receives butter fill. Flex columns and auto top margins keep CTAs aligned at the bottom of the desktop row. Sample excludes plan prices and entitlements pending product verification.",
       "html": "<article class=\"ds-plan\"><h3>Starter</h3><p>For getting your bakery organized.</p></article>",
-      "css": ".ds-plan{padding:32px;border:1px solid var(--line,#dfd1bf);border-radius:12px;background:var(--paper,#fffaf1);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-plan h3{margin:0;font-size:1.4rem;font-weight:800;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}.ds-plan>p{margin:12px 0 0;color:var(--muted,#6d574a);font-size:.85rem;min-height:2.8em}@media(max-width:1050px){.ds-plan{padding:24px}}@media(max-width:760px){.ds-plan{padding:28px}.ds-plan>p{min-height:0}}"
+      "css": ".ds-plan{display:flex;flex-direction:column;padding:32px;border:1px solid var(--line,#dfd1bf);border-radius:12px;background:var(--paper,#fffaf1);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-plan h3{margin:0;font-size:1.4rem;font-weight:800;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}.ds-plan>p{margin:12px 0 0;color:var(--muted,#6d574a);font-size:1rem;min-height:3.3em}@media(max-width:1050px){.ds-plan{padding:24px}}@media(max-width:760px){.ds-plan{padding:28px}.ds-plan>p{min-height:0}}.ds-plan .ds-plan-action{width:100%;margin-top:auto}"
     },
     {
       "name": "Calculator result panel",
       "kind": "custom",
       "refersTo": "calculator",
-      "description": "Static visual excerpt of the functional illustrative calculator. The source module updates costs and profit, validates numeric bounds, and announces results through a polite atomic live region.",
-      "html": "<div class=\"ds-calculator\"><div class=\"ds-results\" aria-live=\"polite\" aria-atomic=\"true\"><div><span>Cost per cookie</span><output>$1.42</output></div><div><span>Batch profit</span><output>$26.00</output></div><p>$60.00 in sales, less $34.00 in costs.</p></div><p class=\"ds-note\">Example only. Does not include taxes, fees, or other overhead.</p></div>",
-      "css": ".ds-calculator{padding:32px;border:1px solid var(--line,#dfd1bf);border-radius:12px;background:var(--surface,#ffffff);color:var(--ink,#342019);box-shadow:0 12px 32px #34201908;font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-results{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;padding:22px;border-radius:var(--radius,8px);background:var(--butter,#f7ce69)}.ds-results span{display:block;font-size:.78rem}.ds-results output{display:block;font-size:2rem;font-weight:800;line-height:1.3;letter-spacing:-.04em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.ds-results p{grid-column:1/-1;margin:0;font-size:.78rem}.ds-note{margin:16px 0 0;color:var(--muted,#6d574a);font-size:.72rem}@media(max-width:760px){.ds-calculator{padding:24px}.ds-results{padding:18px}.ds-results output{font-size:1.8rem}}"
+      "description": "Static visual excerpt of the flat illustrative calculator. The source heading uses cookie-batch.webp; its JavaScript updates costs, labels losses as “Batch loss” with an absolute amount, validates numeric bounds, and announces results through a polite atomic live region. “Reset example” restores defaults and is hidden without JavaScript. At 380px, result labels reserve 3.3em to align output baselines.",
+      "html": "<div class=\"ds-calculator\"><div class=\"ds-results\" aria-live=\"polite\" aria-atomic=\"true\"><div><span>Cost per cookie</span><output>$1.42</output></div><div><span>Batch profit</span><output>$26.00</output></div><p>$60.00 in sales, less $34.00 in costs.</p></div><p class=\"ds-note\">Example only. Excludes taxes, fees, and other overhead.</p></div>",
+      "css": ".ds-calculator{padding:32px;border:1px solid var(--line,#dfd1bf);border-radius:12px;background:var(--surface,#ffffff);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-results{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;padding:22px;border-radius:var(--radius,8px);background:var(--butter,#f7ce69)}.ds-results span{display:block;font-size:.875rem}.ds-results output{display:block;font-size:2rem;font-weight:800;line-height:1.3;letter-spacing:-.04em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.ds-results p{grid-column:1/-1;margin:0;font-size:.875rem}.ds-note{margin:16px 0 0;color:var(--muted,#6d574a);font-size:.8rem}@media(max-width:760px){.ds-calculator{padding:24px}.ds-results{padding:18px}.ds-results span,.ds-results p{font-size:1rem}.ds-results output{font-size:1.8rem}}@media(max-width:380px){.ds-calculator{padding:20px}.ds-results{padding:16px;gap:12px}.ds-results span{min-height:3.3em}.ds-results output{font-size:1.5rem}}"
+    },
+    {
+      "name": "Feature disclosures",
+      "kind": "custom",
+      "description": "Native independently expandable feature rows, with the first initially open. Browser markers and keyboard behavior work without JavaScript; FAQ uses the same native disclosure approach in its paired desktop layout.",
+      "html": "<div class=\"ds-features\"><details open><summary>Your storefront. Your customers.</summary><p>A place for customers to order, with the details you need to make their next bake feel personal.</p></details><details><summary>Every order, accounted for.</summary><p>Keep order statuses, invoices, and payments connected. Spend less time chasing the details through messages.</p></details></div>",
+      "css": ".ds-features{border-top:1px solid var(--line,#dfd1bf);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-features details{border-bottom:1px solid var(--line,#dfd1bf)}.ds-features summary{padding-block:22px;font-size:1.05rem;font-weight:700;line-height:1.45;cursor:pointer}.ds-features summary::marker,.ds-features summary:hover{color:var(--accent,#8b3e25)}.ds-features summary:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}.ds-features p{margin:0;padding-bottom:22px;color:var(--muted,#6d574a)}"
     }
   ],
   "narrative": {
     "northStar": "A working bakery journal",
-    "overview": "Butter-yellow fields, cocoa ink, generous Manrope type, simple rounded controls, and tactile bakery photography make the business side of home baking feel manageable. The original KneadIt logo anchors an open, editorial page with a working illustrative calculator. Positioning is integrated into the hero's introductory paragraph.",
+    "overview": "Butter-yellow fields, cocoa ink, generous Manrope type, simple rounded controls, and tactile bakery photography make the business side of home baking feel manageable. The original KneadIt logo anchors an open, editorial page with a working illustrative calculator. Positioning is integrated into the hero's introductory paragraph.\n\nThis draft records the code-led, one-page Jigsaw implementation in `source/index.blade.php`, `source/css/marketing.css`, and `source/js/marketing.mjs`, including refinements to the user's accepted visual direction, informed by `PRODUCT.md`. It supersedes the stale paper-and-forest / DM Sans description without introducing a new direction. Status: **refinement ready for review; not deployed**. No comp exists; acceptance of the visual direction does not imply final refinement approval. Plan prices and entitlements are intentionally excluded pending reconciliation with application configuration.",
     "keyCharacteristics": [
       "Warm tonal sections and restrained borders.",
       "One self-hosted type family with bold, tightly spaced headings.",
