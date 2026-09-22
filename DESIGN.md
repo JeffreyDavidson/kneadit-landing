@@ -1,166 +1,227 @@
 ---
 name: KneadIt
-description: A working bakery journal in butter yellow, cocoa, and Manrope.
+description: Chalk-white space, bold Bricolage, precise Manrope, and selective yellow for a practical bakery identity.
 colors:
-  ink: "#342019"
-  muted: "#6d574a"
-  paper: "#fffaf1"
-  surface: "#ffffff"
-  butter: "#f7ce69"
-  soft: "#f7eedf"
-  line: "#dfd1bf"
-  control-border: "#907966"
-  accent: "#8b3e25"
-  button-bg: "#342019"
-  button-text: "#fffaf1"
-  error: "#b12e25"
-  dark-ink: "#f5ead6"
-  dark-muted: "#c8b8a6"
-  dark-paper: "#241c17"
-  dark-surface: "#30261f"
-  dark-soft: "#2d231c"
-  dark-line: "#594537"
-  dark-butter: "#493921"
-  dark-accent: "#f7ce69"
-  dark-button-bg: "#f7ce69"
-  dark-button-text: "#302014"
-  dark-button-hover: "#ffe09a"
-  dark-featured-border: "#7e6437"
-  dark-error: "#ed8a78"
+  yellow: "#f7c844"
+  yellow-ink: "#252918"
+  yellow-hover: "#ffda6f"
+  accent: "#775a00"
+  paper: "#f8f9f7"
+  surface: "#fff"
+  soft: "#eef0eb"
+  ink: "#202923"
+  muted: "#59615b"
+  line: "#d8ded6"
+  control: "#758078"
+  error: "#a32925"
+  dark-paper: "#181e1a"
+  dark-surface: "#202822"
+  dark-soft: "#242e27"
+  dark-ink: "#f0f3ee"
+  dark-muted: "#b7c2b9"
+  dark-line: "#3e4b41"
+  dark-control: "#839688"
+  dark-accent: "#f7c844"
+  dark-error: "#ffaaa0"
 typography:
   display:
-    fontFamily: "Manrope, 'Helvetica Neue', Arial, sans-serif"
-    fontSize: "clamp(2.8rem, 5.35vw, 4.8rem)"
+    fontFamily: "Bricolage, Manrope, sans-serif"
+    fontSize: "clamp(3rem, 5.5vw, 4.8rem)"
     fontWeight: 800
-    lineHeight: 1.06
+    lineHeight: 1.03
     letterSpacing: "-.04em"
   headline:
-    fontFamily: "Manrope, 'Helvetica Neue', Arial, sans-serif"
-    fontSize: "clamp(2rem, 3.65vw, 3.25rem)"
+    fontFamily: "Bricolage, Manrope, sans-serif"
+    fontSize: "clamp(2.1rem, 4vw, 3.65rem)"
     fontWeight: 800
-    lineHeight: 1.12
-    letterSpacing: "-.03em"
+    lineHeight: 1.08
+    letterSpacing: "-.035em"
+  title:
+    fontFamily: "Bricolage, Manrope, sans-serif"
+    fontSize: "1.8rem"
+    fontWeight: 800
+    lineHeight: 1.08
+    letterSpacing: "-.035em"
+  panel-title:
+    fontFamily: "Bricolage, Manrope, sans-serif"
+    fontSize: "1.4rem"
+    fontWeight: 800
+    lineHeight: 1.08
   body:
-    fontFamily: "Manrope, 'Helvetica Neue', Arial, sans-serif"
+    fontFamily: "Manrope, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.65
-  button:
-    fontFamily: "Manrope, 'Helvetica Neue', Arial, sans-serif"
+  body-small:
+    fontFamily: "Manrope, sans-serif"
     fontSize: ".9rem"
-    fontWeight: 700
+    lineHeight: 1.65
+  mobile-copy:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: ".95rem"
+  label:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: ".875rem"
+    fontWeight: 600
+    lineHeight: 1.65
+  button:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: ".875rem"
+    fontWeight: 800
     lineHeight: 1.4
+  compact:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: ".8rem"
+  caption:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: ".75rem"
+  metadata:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: ".7rem"
+  fine-print:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: ".65rem"
 rounded:
+  field: "6px"
   control: "8px"
-  field: "5px"
-  panel: "12px"
+  panel: "16px"
+  payment: "5px"
 components:
   button-primary:
-    backgroundColor: "{colors.button-bg}"
-    textColor: "{colors.button-text}"
+    backgroundColor: "{colors.yellow}"
+    textColor: "{colors.yellow-ink}"
     typography: "{typography.button}"
     rounded: "{rounded.control}"
-    padding: "14px 24px"
+    padding: "14px 22px"
+  button-primary-hover:
+    backgroundColor: "{colors.yellow-hover}"
   button-small:
-    backgroundColor: "{colors.button-bg}"
-    textColor: "{colors.button-text}"
+    backgroundColor: "{colors.yellow}"
+    textColor: "{colors.yellow-ink}"
     typography: "{typography.button}"
     rounded: "{rounded.control}"
-    padding: "10px 18px"
+    padding: "11px 18px"
   button-outline:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
     typography: "{typography.button}"
     rounded: "{rounded.control}"
-    padding: "14px 24px"
+    padding: "14px 22px"
+  button-outline-hover:
+    backgroundColor: "{colors.soft}"
   input:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
+    typography: "{typography.body}"
     rounded: "{rounded.field}"
     padding: "10px 12px"
-  price-card:
-    backgroundColor: "{colors.paper}"
+  payment-paid:
+    backgroundColor: "{colors.soft}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.panel}"
-    padding: "32px"
+    typography: "{typography.caption}"
+    rounded: "{rounded.payment}"
+    padding: "4px 8px"
   calculator:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
     rounded: "{rounded.panel}"
-    padding: "32px"
+    padding: "28px"
 ---
 
 # Design System: KneadIt
 
 ## Overview
 
-**Creative North Star: "A working bakery journal"**
+**Creative North Star: "A baker's working week"**
 
-Butter-yellow fields, cocoa ink, generous Manrope type, simple rounded controls, and tactile bakery photography make the business side of home baking feel manageable. The original KneadIt logo anchors an open, editorial page with a working illustrative calculator. Positioning is integrated into the hero's introductory paragraph.
+Chalk-white space, near-black Bricolage lettering, precise Manrope data, and selective yellow make bakery administration feel clear and approachable. The original KneadIt logo and bakery photography keep the identity recognizable; borders and practical controls give the work structure.
 
-This draft records the code-led, one-page Jigsaw implementation in `source/index.blade.php`, `source/css/marketing.css`, and `source/js/marketing.mjs`, including refinements to the user's accepted visual direction, informed by `PRODUCT.md`. It supersedes the stale paper-and-forest / DM Sans description without introducing a new direction. Status: **refinement ready for review; not deployed**. No comp exists; acceptance of the visual direction does not imply final refinement approval. Plan prices and entitlements are intentionally excluded pending reconciliation with application configuration.
+This record describes the implemented source, not a proposed comp: `source/index.blade.php`, `source/css/marketing.css`, and `source/js/marketing.mjs`, informed by `PRODUCT.md`. The user delegated the redesign and accepted its direction; there is no approved raster comp or claim of final user approval or production deployment. The finish review's five material findings were fixed and received a SHIP verdict on those fixes, not a new whole-surface review. Page strategy and composition remain in `.impeccable/surfaces/source-index-blade-php.md`.
 
 **Key Characteristics:**
 
-- Warm tonal sections and restrained borders.
-- One self-hosted type family with bold, tightly spaced headings.
-- Original branding, generated illustrative bakery photos, and a usable costing example.
+- Clear neutral surfaces with yellow reserved for actions, selection, and results.
+- Expressive self-hosted headings paired with compact, readable working data.
+- Original branding, labeled illustrations, flat panels, and visible keyboard feedback.
 
 ## Colors
 
-Butter is the broad expressive field for the hero and closing CTA bookends, calculator results, and featured Growth plan. Cocoa ink carries headings and primary actions; rust accent provides link hover and keyboard focus. Paper, white surface, and soft cream separate sections and forms, with muted brown for supporting copy and distinct divider/control borders.
+### Primary
 
-Frontmatter records the light custom properties and observed dark overrides; `dark-button-hover` and `dark-featured-border` name literal component colors. In dark appearance, each `dark-` token replaces its matching light role; control borders stay unchanged, while the error border becomes a lighter coral. System appearance is the default. The footer selector applies System, Light, or Dark for the current page only, without persistence.
+Yellow supplies primary actions, selected day controls, and calculator results; yellow-ink keeps their text dark in both appearances. Yellow-hover brightens filled actions. Accent is the darker yellow-brown used for link hover, step numbers, caret, and focus in light appearance.
+
+**The Selective Yellow Rule.** Use yellow for actions, selection, and results; keep large surrounding surfaces neutral.
+
+### Neutral
+
+Paper is the page and field background; surface is the panel and highlighted plan background; soft separates supporting regions. Ink carries headings and primary text, muted supports descriptions, and line separates content. Control is the stronger boundary for fields, outline buttons, and the mobile menu.
+
+**The Control Boundary Rule.** Use control for interactive boundaries and line for content dividers.
+
+The light control border (`#758078`) measures approximately 3.58:1 against soft and 3.89:1 against paper. These are boundary contrast measurements, not a whole-page accessibility certification. Error identifies invalid fields; it is a semantic state, not another decorative accent.
+
+### Dark appearance
+
+Each `dark-` entry replaces its matching CSS role. Yellow, yellow-ink, and yellow-hover remain unchanged, so actions and results stay bright with dark text. Dark accent becomes yellow; dark control and error become lighter. System preference is the default; the footer's System/Light/Dark selector affects only the current page, with no storage or cookie.
 
 ## Typography
 
-Manrope is self-hosted from `source/fonts/manrope-latin.woff2`, preloaded, and declared at weights 200–800 with `font-display: swap`. Display and body share the family; there is no DM Sans pairing.
+**Display Font:** Bricolage Grotesque, registered locally as `Bricolage`, with Manrope and sans-serif fallbacks.
+**Body Font:** Manrope, with sans-serif fallback.
 
-Frontmatter captures the base display, section headline, body, and button roles. Headings use weight 800 and balanced wrapping. General third-level headings start at 1.25rem with 1.12 line height and -.025em tracking; local headings vary by component. Form labels use .875rem/600 on desktop and 1rem (16px at the default root size) at 760px and below. Inputs and textarea use 1rem (16px) throughout. Calculator outputs use tabular numerals, 2rem/800, 1.3 line height, and -.04em tracking; outputs reduce to 1.8rem at 760px and 1.5rem at 380px. Result labels use .875rem on desktop and 1rem on mobile.
+Both fonts are self-hosted, preloaded, and use `font-display: swap`. Bricolage is weight 800; Manrope supports 200–800. Headings are tightly tracked and generally balance their wrapping; the hero uses normal wrapping. There is no modular ratio: the frontmatter records actual roles and recurrent sizes, not a generated type scale.
 
-The hero lede reads: “Business software for home bakers. Bring your orders, recipes, customers, and payments together in KneadIt.” It uses 1.03rem body type (1rem on mobile), cocoa ink, and a 430px maximum width. Price typography uses 3.3rem/800, 1.2 line height, and -.035em tracking; those presentation values do not establish plan prices.
+- Display and section headline use the fluid sizes above. Display changes to `clamp(2.8rem, 5.5vw, 4.3rem)` at 1120px, `clamp(2.65rem, 8.3vw, 3.9rem)` at 760px with 1.07 line height, and 2.4rem at 380px.
+- Title is shared by workflow and plan names; workflow titles become 1.7rem on mobile. Panel-title covers the week and calculator headings; their tracking differs (-.025em and -.035em). The week title becomes 1.25rem on mobile; selected-day titles use 1.3rem.
+- Body-small serves supporting paragraphs; mobile-copy serves the introduction, section copy, and FAQ summaries. Label size is also used by order rows, disclosures, and text links with role-specific weights. Compact covers navigation, legends, and plan details; caption covers notes, payment labels, and totals. Metadata and fine-print are reserved for secondary example/status/legal text, not body copy.
+- Labels become .8rem at 760px. Inputs and textarea retain 1rem throughout. Disclosure paragraphs cap at 65ch.
+- Numeric outputs use Bricolage 800 and tabular numerals: calculator `clamp(2rem, 3vw, 2.7rem)/1.3`, then 2rem at 760px and 1.8rem at 380px; plan prices use 2.65rem/1.2. Both use -.035em tracking.
+
+**The Two Voices Rule.** Use Bricolage for headings and prominent totals; use Manrope for explanations, controls, and working data.
 
 ## Layout
 
-The default centered wrapper is `min(100% - 96px, 1200px)`. Section padding is `clamp(64px, 7.5vw, 112px)`; the implementation uses contextual gaps rather than a formal spacing scale. Hero columns are 1.08fr/.92fr; pricing uses three columns. Workflow pairs an introduction with three vertical rows in a 1fr/1.1fr split. Features, costing, and contact pair copy with imagery or a form. The FAQ pairs introductory copy and a contact link with disclosure rows in a 1fr/1.1fr split. Workflow and FAQ gaps begin at 80px.
+The centered wrapper is `min(100% - 96px, 1280px)`; standard sections use 108px vertical padding. Recurrent inner gaps include 12, 16, 18, 20, 24, 28, 32, 36, and 48px, with 90px between several paired sections. These are contextual measurements, not a declared spacing-token scale. Rows and thin rules organize dense information; panels contain interactive examples.
 
-| CSS condition | Observed adaptation |
+| Maximum width | Shared adaptation |
 | --- | --- |
-| `max-width: 1050px` | Wrapper becomes `calc(100% - 64px)`; paired-section gaps reduce to 40px, pricing padding to 24px; hero type caps at 4rem. |
-| `max-width: 760px` | Wrapper becomes `calc(100% - 40px)`; major grids stack, feature copy precedes its image, and contact fields stack. Hero type becomes `clamp(2.6rem, 10.5vw, 4.7rem)`. Calculator cost rows pair labels with inputs while batch inputs/results retain two columns until the narrower adaptation below. Labels, result captions, and buttons use 1rem. Pricing headings align left. |
-| `max-width: 380px` | Calculator padding becomes 20px; its photo becomes 56px × 64px with a 12px heading gap. Batch inputs stack; results stay in two columns with 16px padding, a 12px gap, and 1.5rem outputs. Result-label minimum height is 3.3em to align output baselines. |
+| 1120px | Wrapper subtracts 64px; paired-section gaps shrink to 48px; navigation and data columns tighten. |
+| 760px | Wrapper subtracts 40px; standard sections use 68px padding; major grids stack, feature copy precedes imagery, contact fields stack, and navigation becomes a disclosure. |
+| 380px | Wrapper subtracts 32px; batch fields stack; calculator padding becomes 18px and results keep two columns with 16px padding and a 12px gap. |
+
+Anchor scrolling accounts for the sticky header with 104px scroll padding, reduced to 88px at 760px.
 
 ## Elevation & Depth
 
-Depth comes from tonal section changes and fine borders. Calculator and pricing panels are flat, without shadows. The opaque sticky header uses a bottom divider and z-index 2; the keyboard skip link sits above it at z-index 3. There are no entrance or scroll-reveal animations.
+Surfaces are flat, with no box shadows. Neutral fills, 1px rules, and spacing establish depth. The opaque sticky header sits at z-index 2 and the skip link at 4. Buttons lift 2px on hover and return on press, with .2s transform/background transitions. Day selection uses a .18s background transition and a .3s content change from 6px below at .6 opacity; there are no scroll-reveal effects.
 
-**The Reduced Motion Rule.** When reduced motion is requested, disable transitions and use automatic scrolling instead of smooth scrolling.
+**The Reduced Motion Rule.** Disable transitions and animations and use automatic scrolling when reduced motion is requested.
 
 ## Shapes
 
-Controls, result panels, and the feature photograph use the control radius; inputs, textarea, and appearance select use the field radius; calculator and pricing panels use the panel radius. Boundaries use 1px rules, including separators between vertical workflow entries; the first workflow entry has no top rule.
-
-The hero photograph has an arched crop: 160px top corners on desktop and 110px on mobile, with control-radius bottom corners. Its height is `clamp(420px, 39vw, 520px)`, becoming 350px at the mobile breakpoint. This is the built treatment, despite the direction contract's description of an unadorned photo.
+Repeated controls use 8px corners, fields use 6px, and interactive example panels use 16px. Repeated payment labels use 5px corners. The feature photograph's 12px corners, calculator results' 10px corners, and circular batch thumbnail are local treatments, not a new global radius scale. The declared `--radius: 12px` is unused in the stylesheet and is not promoted as a working token. Pricing is organized in square-edged rows.
 
 ## Components
 
-- **Buttons and links:** Filled primary, compact navigation, and outlined pricing variants share rounded geometry. Minimum heights are 52px and 44px for compact buttons; text links are underlined with a 44px minimum height. Hover changes fill/border to accent (the dedicated pale-yellow hover in dark appearance); press translates 1px. Background and transform transition over .18s using default CSS easing. Disabled contact submission uses a wait cursor and .65 opacity.
-- **Navigation:** Original `logo-transparent.png`, displayed at 136px wide (120px on mobile), sits in a sticky header. The desktop navigation has an 80px minimum height; mobile uses 68px. The menu button updates `aria-expanded`; choosing a link, Escape, or crossing the 760px breakpoint closes it. Escape restores toggle focus. Without JavaScript, mobile links remain visible.
-- **Fields and contact:** Persistent labels, paper backgrounds, control borders, 1rem (16px) input/textarea type, and 48px minimum field height. Focus changes the border to accent; `:user-invalid` uses the theme-aware error token. The shared keyboard outline is 3px accent with 5px offset; inputs, textarea, and select use a tighter 2px offset. Contact exposes sending, success, and failure status; failure preserves entered text. Without JavaScript, the visible email alternative handles contact.
-- **Feature disclosures:** Native `details`/`summary` rows use browser markers, accent hover, and 1px separators. The first row opens initially; each remains independently expandable without JavaScript. The recipe row links to the calculator.
-- **Calculator:** A flat white surface panel with butter results and a `cookie-batch.webp` photo beside the heading; its padding drops from 32px to 24px at 760px and 20px at 380px. Browser-side input updates compute unit cost and batch profit from ingredients, labor, packaging, quantity, and unit price, rounding monetary inputs to cents. Initial example: $34 costs, 24 cookies, $2.50 each, $1.42 unit cost, $26 profit. Negative profit changes the label to “Batch loss” and displays the absolute currency amount; non-negative results use “Batch profit.” “Reset example” restores the original input values and recalculates results; this 44px-minimum button appears only when JavaScript is enabled. Invalid inputs show N/A and explanatory text. Results use a polite, atomic live region. It is explicitly illustrative, excludes taxes/fees/other overhead, and is not a product screenshot or earnings claim. Without JavaScript, the initial example remains.
-- **Pricing and FAQ:** Three bordered plan panels; Growth uses butter fill. Cards use flex columns with auto top margins on their CTAs, aligning actions at the bottom across the desktop row. Card padding is 32px, 24px at 1050px, and 28px at 760px. Native `details`/`summary` and browser disclosure markers provide independently expandable FAQ rows, initially opening the first item, including without JavaScript. FAQ introductory copy and rows sit side by side on desktop and stack on mobile.
-- **Closing CTA:** A butter-yellow field echoes the hero, with a centered heading and signup action; padding is 90px vertically, reducing to 64px on mobile.
-- **Imagery:** `baker-packing.webp` (with a 640px responsive alternative) leads; `sourdough-table.webp` supports the feature story; `cookie-batch.webp` identifies the illustrative calculator batch. These are generated illustrative baking photos with prompts accompanying the source assets, not customer evidence. The hero loads eagerly at high priority; the feature and calculator photos load lazily.
+- **Actions:** Filled, compact, and outlined variants share geometry; minimum heights are 52px or 44px for compact buttons. Outline controls use control borders and soft hover fill. Text links are underlined with a 44px minimum height. Disabled submission uses .65 opacity and a wait cursor.
+- **Navigation:** Preserve `logo-transparent.png`; it renders at 142px wide, or 126px on mobile. Menu state uses `aria-expanded`; links, Escape, and crossing 760px close it. Escape returns focus to the toggle. Links remain visible without JavaScript.
+- **Fields and contact:** Persistent labels, control borders, paper backgrounds, and 48px minimum input/textarea height. Focus is a 3px accent outline with 5px offset, tightened to 2px for fields/select. Invalid fields use error borders. Contact announces sending outcomes, preserves text on failure, and provides an email fallback.
+- **Disclosures and icons:** Native independently expandable `details`/`summary`, with the first feature and FAQ item open. Shared inline SVG arrows and chevrons use a 24-unit viewBox, 20px dimensions, 1.5 stroke, and currentColor; decorative icons are hidden from assistive technology. The chevron rotates 180 degrees when open. No glyph icons.
+- **Working data:** Day buttons expose pressed states; the polite, atomic result region includes orders, payment words, quantities, and an empty state. Payment tags communicate with text as well as fill. The initial Saturday example remains without JavaScript. This is explicitly fictional workflow illustration, not an app screenshot.
+- **Calculator:** A surface panel with yellow results, visible numeric labels, and a polite, atomic live region. Bounds and decimal/integer steps are validated; invalid entries produce N/A and a specific explanation. Negative profit becomes “Batch loss” with an absolute amount. Reset restores defaults and is available only with JavaScript; initial results remain without it. Inputs retain 16px text, and large totals can wrap. The example excludes taxes, fees, and overhead; it is not an earnings claim.
+- **Plan rows:** A four-column desktop comparison becomes two columns on mobile, with features and action spanning the row. Growth uses surface fill. Prices and entitlements remain product content, not design tokens.
+- **Imagery and provenance:** Keep the original logo assets. `bakery-dispatch.webp` and its 768px alternative provide a labeled AI-generated editorial photograph; `cookie-batch.webp` is the existing illustrative batch thumbnail. Preserve their adjacent generation/provenance records. Both page photographs load lazily; neither is customer evidence.
 
-The compact schemaVersion 2 sidecar records observed motion, breakpoints, and representative component snippets. Snippets are visual samples; the source module owns page behavior. No synthesized tonal ramps or spacing scale is added.
+The schemaVersion 2 sidecar supplies component samples, motion, breakpoints, and matching narrative. Samples use live CSS variables with light fallbacks; source JavaScript owns application behavior. No invented tonal ramps, spacing scale, or detector ignores are added.
 
 ## Do's and Don'ts
 
-- Do preserve the original KneadIt logo and the self-hosted Manrope family.
-- Do keep focus indicators, visible field labels, reduced-motion handling, and non-JavaScript fallbacks.
-- Do label generated imagery and calculator examples honestly; keep application behavior outside the static landing page.
-- Don't reintroduce the stale paper-and-forest / DM Sans direction as the current system.
-- Don't imply customer endorsement, verified earnings, comp approval, or deployment from this documentation.
+- Do preserve the original KneadIt logo and the self-hosted Bricolage/Manrope pairing.
+- Do distinguish interactive control borders from quiet content dividers.
+- Do retain visible labels, keyboard focus, reduced motion, and usable non-JavaScript fallbacks.
+- Do identify illustrative workflows and generated photographs honestly and retain asset provenance.
+- Don't restore the retired butter-and-cocoa palette or single-family heading treatment.
+- Don't replace SVG icons with text glyphs or present examples as genuine product captures.
+- Don't infer customer endorsement, final user approval, or deployment from this record.
 
-Not canonized: unresolved plan prices and entitlements; design documentation cannot verify those product claims.
+Not canonized: unused CSS variables, one-off shapes as global tokens, and product pricing as visual rules; these are not reusable design-system evidence.

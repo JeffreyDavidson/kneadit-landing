@@ -1,8 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { calculateBatch } from '../source/js/marketing.mjs';
+import { calculateBatch, getCostingError } from '../source/js/marketing.mjs';
 
 const example = { ingredients: 12.4, labor: 18, packaging: 3.6, quantity: 24, price: 2.5 };
+
+for (const [validity, step, expected] of [
+    [{ rangeOverflow: true }, '0.01', 'Ingredients cost must be 100000 or less.'],
+    [{ rangeUnderflow: true }, '0.01', 'Ingredients cost must be at least 0.'],
+    [{ stepMismatch: true }, '0.01', 'Ingredients cost must use no more than two decimal places.'],
+    [{ stepMismatch: true }, '1', 'Ingredients cost must be a whole number.'],
+    [{ valueMissing: true }, '0.01', 'Enter a number for ingredients cost.'],
+]) {
+    test(`explains the field correction: ${expected}`, () => {
+        assert.equal(getCostingError({ label: 'Ingredients cost', validity, min: '0', max: '100000', step }), expected);
+    });
+}
 
 test('calculates the displayed sample batch', () => {
     const result = calculateBatch(example);

@@ -1,19 +1,59 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-22T02:14:49.574Z",
+  "generatedAt": "2026-09-22T17:12:38Z",
   "title": "Design System: KneadIt",
   "extensions": {
+    "typographyMeta": {
+      "panel-title": {
+        "displayName": "Panel heading",
+        "purpose": "Week and calculator headings share size and weight; their tracking differs."
+      },
+      "fine-print": {
+        "displayName": "Fine print",
+        "purpose": "Observed secondary example/status/legal text, not a body-text default."
+      }
+    },
     "shadows": [],
     "motion": [
-      { "name": "button-transition", "value": "background .18s, transform .18s", "purpose": "Control feedback; omitted timing function uses CSS ease." },
-      { "name": "button-press", "value": "translateY(1px)", "purpose": "Active button feedback." },
-      { "name": "anchor-scroll", "value": "smooth", "purpose": "In-page navigation; scroll padding is 6rem, or 5rem at 760px." },
-      { "name": "reduced-motion", "value": "@media (prefers-reduced-motion: reduce)", "purpose": "All element/pseudo-element transitions become none !important; scrolling becomes auto." }
+      {
+        "name": "button-transition",
+        "value": "transform .2s, background .2s",
+        "purpose": "Default CSS ease; hover lifts 2px, press returns to 0."
+      },
+      {
+        "name": "day-transition",
+        "value": "background .18s",
+        "purpose": "Day-button feedback."
+      },
+      {
+        "name": "day-in",
+        "value": ".3s cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Day content moves from translateY(6px), opacity .6 to translateY(0), opacity 1; only with no reduced-motion preference."
+      },
+      {
+        "name": "anchor-scroll",
+        "value": "smooth",
+        "purpose": "Scroll padding is 104px, or 88px at 760px."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce)",
+        "purpose": "Disable all transitions and animations; set scroll behavior to auto."
+      }
     ],
     "breakpoints": [
-      { "name": "max-width", "value": "1050px" },
-      { "name": "max-width-mobile", "value": "760px" },
-      { "name": "max-width-narrow", "value": "380px" }
+      {
+        "name": "max-width-tablet",
+        "value": "1120px"
+      },
+      {
+        "name": "max-width-mobile",
+        "value": "760px"
+      },
+      {
+        "name": "max-width-narrow",
+        "value": "380px"
+      }
     ]
   },
   "components": [
@@ -21,84 +61,112 @@
       "name": "Primary button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Main signup action. Samples inherit page tokens with light fallbacks. Dark appearance overrides hover to #ffe09a in the source stylesheet.",
-      "html": "<a class=\"ds-primary\" href=\"#trial\">Start your free trial</a>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 24px;border:1px solid var(--button-bg,#342019);border-radius:var(--radius,8px);background:var(--button-bg,#342019);color:var(--button-text,#fffaf1);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;white-space:nowrap;transition:background .18s,transform .18s}.ds-primary:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25)}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important}}@media(max-width:760px){.ds-primary{font-size:1rem}}"
+      "description": "Observed action geometry and hover, press, focus, and disabled states.",
+      "html": "<button class=\"ds-primary\" type=\"button\">Start free trial<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\" /></svg></button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-height:52px;padding:14px 22px;border:1px solid transparent;border-radius:8px;color:var(--yellow-ink,#252918);background:var(--yellow,#f7c844);font:800 .875rem/1.4 var(--font,Manrope,sans-serif);text-decoration:none;white-space:nowrap;transition:transform .2s,background .2s}.ds-primary svg{display:block;flex-shrink:0}.ds-primary:hover{background:#ffda6f;transform:translateY(-2px)}.ds-primary:active{transform:translateY(0)}.ds-primary:disabled{opacity:.65;cursor:wait;transform:none}.ds-primary:focus-visible{outline:3px solid var(--accent,#775a00);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none!important;animation:none!important}}"
     },
     {
       "name": "Compact button",
       "kind": "button",
       "refersTo": "button-small",
-      "description": "Compact filled action in navigation; minimum height 44px.",
-      "html": "<a class=\"ds-small\" href=\"#trial\">Start free</a>",
-      "css": ".ds-small{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border:1px solid var(--button-bg,#342019);border-radius:var(--radius,8px);background:var(--button-bg,#342019);color:var(--button-text,#fffaf1);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;transition:background .18s,transform .18s}.ds-small:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25)}.ds-small:active{transform:translateY(1px)}.ds-small:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-small{transition:none!important}}@media(max-width:760px){.ds-small{font-size:1rem}}"
+      "description": "Observed action geometry and hover, press, focus, and disabled states.",
+      "html": "<button class=\"ds-small\" type=\"button\">Start free trial</button>",
+      "css": ".ds-small{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-height:44px;padding:11px 18px;border:1px solid transparent;border-radius:8px;color:var(--yellow-ink,#252918);background:var(--yellow,#f7c844);font:800 .875rem/1.4 var(--font,Manrope,sans-serif);text-decoration:none;white-space:nowrap;transition:transform .2s,background .2s}.ds-small svg{display:block;flex-shrink:0}.ds-small:hover{background:#ffda6f;transform:translateY(-2px)}.ds-small:active{transform:translateY(0)}.ds-small:disabled{opacity:.65;cursor:wait;transform:none}.ds-small:focus-visible{outline:3px solid var(--accent,#775a00);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-small{transition:none!important;animation:none!important}}"
     },
     {
       "name": "Outline button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Secondary plan action, filled on hover.",
-      "html": "<a class=\"ds-outline\" href=\"#trial\">Start free</a>",
-      "css": ".ds-outline{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 24px;border:1px solid var(--control-border,#907966);border-radius:var(--radius,8px);background:transparent;color:var(--ink,#342019);font:700 .9rem/1.4 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif);text-decoration:none;transition:background .18s,transform .18s}.ds-outline:hover{background:var(--accent,#8b3e25);border-color:var(--accent,#8b3e25);color:var(--button-text,#fffaf1)}.ds-outline:active{transform:translateY(1px)}.ds-outline:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none!important}}@media(max-width:760px){.ds-outline{font-size:1rem}}"
+      "description": "Observed action geometry and hover, press, focus, and disabled states.",
+      "html": "<button class=\"ds-outline\" type=\"button\">Start free trial<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\" /></svg></button>",
+      "css": ".ds-outline{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-height:52px;padding:14px 22px;border:1px solid var(--control,#758078);border-radius:8px;color:var(--ink,#202923);background:transparent;font:800 .875rem/1.4 var(--font,Manrope,sans-serif);text-decoration:none;white-space:nowrap;transition:transform .2s,background .2s}.ds-outline svg{display:block;flex-shrink:0}.ds-outline:hover{background:var(--soft,#eef0eb);transform:translateY(-2px)}.ds-outline:active{transform:translateY(0)}.ds-outline:disabled{opacity:.65;cursor:wait;transform:none}.ds-outline:focus-visible{outline:3px solid var(--accent,#775a00);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-outline{transition:none!important;animation:none!important}}"
     },
     {
       "name": "Labeled input",
       "kind": "input",
       "refersTo": "input",
-      "description": "Shared contact/calculator field treatment: 16px input type, 48px minimum height, .875rem desktop labels and 16px mobile labels. The 3px focus outline uses a 2px offset.",
-      "html": "<label class=\"ds-label\">Email address<input class=\"ds-input\" type=\"email\" autocomplete=\"email\" required></label>",
-      "css": ".ds-label{display:block;color:var(--ink,#342019);font:600 .875rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-input{display:block;width:100%;min-width:0;min-height:48px;margin-top:7px;padding:10px 12px;border:1px solid var(--control-border,#907966);border-radius:5px;background:var(--paper,#fffaf1);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-input:focus{border-color:var(--accent,#8b3e25)}.ds-input:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:2px}.ds-input:user-invalid{border-color:var(--error,#b12e25)}@media(max-width:760px){.ds-label{font-size:1rem}}"
+      "description": "Shared field appearance; labels reduce on mobile while input text remains 16px. No separate hover treatment exists.",
+      "html": "<label class=\"ds-label\">Email address<input class=\"ds-input\" type=\"email\" autocomplete=\"email\" required /></label>",
+      "css": ".ds-label{display:block;color:var(--ink,#202923);font:600 .875rem/1.65 var(--font,Manrope,sans-serif)}.ds-input{display:block;width:100%;min-width:0;min-height:48px;margin-top:8px;padding:10px 12px;font:400 1rem/1.65 var(--font,Manrope,sans-serif);color:var(--ink,#202923);caret-color:var(--accent,#775a00);background:var(--paper,#f8f9f7);border:1px solid var(--control,#758078);border-radius:6px}.ds-input:focus-visible{outline:3px solid var(--accent,#775a00);outline-offset:2px}.ds-input:user-invalid{border-color:var(--error,#a32925)}@media(max-width:760px){.ds-label{font-size:.8rem}}"
     },
     {
       "name": "Navigation links",
       "kind": "nav",
-      "description": "Desktop links and mobile vertical arrangement. The source header adds the original logo and compact CTA; its JavaScript owns disclosure and Escape focus handling.",
+      "description": "Link spacing and states; the page adds its original logo, compact action, and JavaScript-controlled mobile disclosure.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Navigation sample\"><a href=\"#how-it-works\">How it works</a><a href=\"#features\">Features</a><a href=\"#pricing\">Pricing</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:32px;background:var(--paper,#fffaf1);color:var(--ink,#342019);font:600 .85rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:none}.ds-nav a:hover{color:var(--accent,#8b3e25)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}@media(max-width:1050px){.ds-nav{gap:20px}}@media(max-width:760px){.ds-nav{display:grid;gap:4px;padding-top:16px}}"
+      "css": ".ds-nav{display:flex;align-items:center;gap:30px;background:var(--paper,#f8f9f7);color:var(--ink,#202923);font:700 .8rem/1.65 var(--font,Manrope,sans-serif)}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:none}.ds-nav a:hover{color:var(--accent,#775a00)}.ds-nav a:focus-visible{outline:3px solid var(--accent,#775a00);outline-offset:5px}@media(max-width:1120px){.ds-nav{gap:20px}}@media(max-width:760px){.ds-nav{display:grid;width:100%;gap:4px;padding-top:14px}}"
     },
     {
-      "name": "Pricing panel",
+      "name": "Payment labels",
+      "kind": "chip",
+      "refersTo": "payment-paid",
+      "description": "Noninteractive text statuses; Paid has soft fill and Due at pickup remains transparent. No fabricated hover or focus state.",
+      "html": "<div class=\"ds-payments\"><span class=\"ds-payment ds-paid\">Paid</span><span class=\"ds-payment\">Due at pickup</span></div>",
+      "css": ".ds-payments{display:flex;gap:16px;color:var(--ink,#202923);background:var(--surface,#fff);font:400 1rem/1.65 var(--font,Manrope,sans-serif)}.ds-payment{font-size:.75rem;padding:4px 8px;border:1px solid var(--line,#d8ded6);border-radius:5px}.ds-paid{background:var(--soft,#eef0eb)}@media(max-width:760px){.ds-payment{padding:3px 6px;font-size:.7rem}}"
+    },
+    {
+      "name": "Calculator panel",
       "kind": "card",
-      "refersTo": "price-card",
-      "description": "Flat bordered plan surface; Growth receives butter fill. Flex columns and auto top margins keep CTAs aligned at the bottom of the desktop row. Sample excludes plan prices and entitlements pending product verification.",
-      "html": "<article class=\"ds-plan\"><h3>Starter</h3><p>For getting your bakery organized.</p></article>",
-      "css": ".ds-plan{display:flex;flex-direction:column;padding:32px;border:1px solid var(--line,#dfd1bf);border-radius:12px;background:var(--paper,#fffaf1);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-plan h3{margin:0;font-size:1.4rem;font-weight:800;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}.ds-plan>p{margin:12px 0 0;color:var(--muted,#6d574a);font-size:1rem;min-height:3.3em}@media(max-width:1050px){.ds-plan{padding:24px}}@media(max-width:760px){.ds-plan{padding:28px}.ds-plan>p{min-height:0}}.ds-plan .ds-plan-action{width:100%;margin-top:auto}"
-    },
-    {
-      "name": "Calculator result panel",
-      "kind": "custom",
       "refersTo": "calculator",
-      "description": "Static visual excerpt of the flat illustrative calculator. The source heading uses cookie-batch.webp; its JavaScript updates costs, labels losses as “Batch loss” with an absolute amount, validates numeric bounds, and announces results through a polite atomic live region. “Reset example” restores defaults and is hidden without JavaScript. At 380px, result labels reserve 3.3em to align output baselines.",
-      "html": "<div class=\"ds-calculator\"><div class=\"ds-results\" aria-live=\"polite\" aria-atomic=\"true\"><div><span>Cost per cookie</span><output>$1.42</output></div><div><span>Batch profit</span><output>$26.00</output></div><p>$60.00 in sales, less $34.00 in costs.</p></div><p class=\"ds-note\">Example only. Excludes taxes, fees, and other overhead.</p></div>",
-      "css": ".ds-calculator{padding:32px;border:1px solid var(--line,#dfd1bf);border-radius:12px;background:var(--surface,#ffffff);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-results{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;padding:22px;border-radius:var(--radius,8px);background:var(--butter,#f7ce69)}.ds-results span{display:block;font-size:.875rem}.ds-results output{display:block;font-size:2rem;font-weight:800;line-height:1.3;letter-spacing:-.04em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.ds-results p{grid-column:1/-1;margin:0;font-size:.875rem}.ds-note{margin:16px 0 0;color:var(--muted,#6d574a);font-size:.8rem}@media(max-width:760px){.ds-calculator{padding:24px}.ds-results{padding:18px}.ds-results span,.ds-results p{font-size:1rem}.ds-results output{font-size:1.8rem}}@media(max-width:380px){.ds-calculator{padding:20px}.ds-results{padding:16px;gap:12px}.ds-results span{min-height:3.3em}.ds-results output{font-size:1.5rem}}"
+      "description": "Static visual excerpt. Source behavior validates inputs, announces results, labels losses, and resets the example. Local result corners are not a global radius token.",
+      "html": "<section class=\"ds-calculator\" aria-label=\"Illustrative costing results\"><h3>Chocolate chip cookies</h3><div class=\"ds-results\"><div><span>Cost per cookie</span><output>$1.42</output></div><div><span>Batch profit</span><output>$26.00</output></div><p>$60.00 in sales, less $34.00 in costs.</p></div><p class=\"ds-note\">Illustrative example. Excludes taxes, fees, and other overhead.</p></section>",
+      "css": ".ds-calculator{padding:28px;border:1px solid var(--line,#d8ded6);border-radius:16px;background:var(--surface,#fff);color:var(--ink,#202923);font:400 1rem/1.65 var(--font,Manrope,sans-serif)}.ds-calculator h3{margin:0;font:800 1.4rem/1.08 var(--display,Bricolage,Manrope,sans-serif);letter-spacing:-.035em;text-wrap:balance}.ds-results{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:var(--yellow,#f7c844);color:var(--yellow-ink,#252918);border-radius:10px;margin-top:26px;padding:22px}.ds-results span{font-size:.75rem}.ds-results output{display:block;font:800 clamp(2rem,3vw,2.7rem)/1.3 var(--display,Bricolage,Manrope,sans-serif);letter-spacing:-.035em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.ds-results p{grid-column:1/-1;margin:0;font-size:.75rem;color:inherit}.ds-note{margin:16px 0 0;font-size:.65rem;color:var(--muted,#59615b)}@media(max-width:760px){.ds-calculator{padding:22px}.ds-results{padding:18px;gap:16px}.ds-results output{font-size:2rem}.ds-results span{font-size:.8rem}.ds-note{font-size:.7rem}}@media(max-width:380px){.ds-calculator{padding:18px}.ds-results{gap:12px;padding:16px}.ds-results output{font-size:1.8rem}}"
     },
     {
-      "name": "Feature disclosures",
+      "name": "Native disclosure",
       "kind": "custom",
-      "description": "Native independently expandable feature rows, with the first initially open. Browser markers and keyboard behavior work without JavaScript; FAQ uses the same native disclosure approach in its paired desktop layout.",
-      "html": "<div class=\"ds-features\"><details open><summary>Your storefront. Your customers.</summary><p>A place for customers to order, with the details you need to make their next bake feel personal.</p></details><details><summary>Every order, accounted for.</summary><p>Keep order statuses, invoices, and payments connected. Spend less time chasing the details through messages.</p></details></div>",
-      "css": ".ds-features{border-top:1px solid var(--line,#dfd1bf);color:var(--ink,#342019);font:400 1rem/1.65 var(--font,Manrope,'Helvetica Neue',Arial,sans-serif)}.ds-features details{border-bottom:1px solid var(--line,#dfd1bf)}.ds-features summary{padding-block:22px;font-size:1.05rem;font-weight:700;line-height:1.45;cursor:pointer}.ds-features summary::marker,.ds-features summary:hover{color:var(--accent,#8b3e25)}.ds-features summary:focus-visible{outline:3px solid var(--accent,#8b3e25);outline-offset:5px}.ds-features p{margin:0;padding-bottom:22px;color:var(--muted,#6d574a)}"
+      "description": "Feature row with the actual decorative SVG chevron. Native keyboard and open behavior work without a framework.",
+      "html": "<details class=\"ds-disclosure\" open><summary>Every order has a place.<svg class=\"ds-chevron\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"m6 9 6 6 6-6\" /></svg></summary><p>Keep customer details, pickup times, and order statuses together. Give customers a storefront to browse and order from.</p></details>",
+      "css": ".ds-disclosure{border-bottom:1px solid var(--line,#d8ded6);color:var(--ink,#202923);font:400 1rem/1.65 var(--font,Manrope,sans-serif)}.ds-disclosure summary{position:relative;list-style:none;padding:21px 30px 21px 0;font-size:.875rem;font-weight:700;cursor:pointer}.ds-disclosure summary::-webkit-details-marker{display:none}.ds-disclosure summary:hover{color:var(--accent,#775a00)}.ds-disclosure summary:focus-visible{outline:3px solid var(--accent,#775a00);outline-offset:5px}.ds-chevron{display:block;position:absolute;right:0;top:50%;margin-top:-10px}.ds-disclosure[open]>summary .ds-chevron{transform:rotate(180deg)}.ds-disclosure p{margin:0;padding-bottom:24px;color:var(--muted,#59615b);font-size:.875rem;max-width:65ch}"
+    },
+    {
+      "name": "Selected pickup day",
+      "kind": "button",
+      "description": "Native pressed-state control; source JavaScript changes the selected day and live region. Sample is a static selected state.",
+      "html": "<button class=\"ds-day\" type=\"button\" aria-pressed=\"true\"><span>Saturday</span><span class=\"ds-count\">3 orders</span><span class=\"ds-arrow\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 19 19 5M5 5h14v14\" /></svg></span></button>",
+      "css": ".ds-day{display:grid;width:100%;grid-template-columns:1fr auto 18px;align-items:center;gap:12px;min-height:56px;padding:12px;border:0;border-radius:8px;background:transparent;color:var(--ink,#202923);text-align:left;font:700 .875rem/1.65 var(--font,Manrope,sans-serif);cursor:pointer;transition:background .18s}.ds-day:hover{background:var(--paper,#f8f9f7)}.ds-day[aria-pressed=true]{background:var(--yellow,#f7c844);color:var(--yellow-ink,#252918)}.ds-count{font-size:.7rem;font-weight:500}.ds-arrow{visibility:hidden}.ds-arrow svg{display:block}.ds-day[aria-pressed=true] .ds-arrow{visibility:visible}.ds-day:focus-visible{outline:3px solid var(--accent,#775a00);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-day{transition:none!important;animation:none!important}}@media(max-width:760px){.ds-day{display:flex;flex-direction:column;align-items:flex-start;gap:4px;font-size:.8rem;padding:10px 8px;min-height:64px}.ds-arrow{display:none}.ds-count{font-size:.65rem}}"
     }
   ],
   "narrative": {
-    "northStar": "A working bakery journal",
-    "overview": "Butter-yellow fields, cocoa ink, generous Manrope type, simple rounded controls, and tactile bakery photography make the business side of home baking feel manageable. The original KneadIt logo anchors an open, editorial page with a working illustrative calculator. Positioning is integrated into the hero's introductory paragraph.\n\nThis draft records the code-led, one-page Jigsaw implementation in `source/index.blade.php`, `source/css/marketing.css`, and `source/js/marketing.mjs`, including refinements to the user's accepted visual direction, informed by `PRODUCT.md`. It supersedes the stale paper-and-forest / DM Sans description without introducing a new direction. Status: **refinement ready for review; not deployed**. No comp exists; acceptance of the visual direction does not imply final refinement approval. Plan prices and entitlements are intentionally excluded pending reconciliation with application configuration.",
+    "northStar": "A baker's working week",
+    "overview": "Chalk-white space, near-black Bricolage lettering, precise Manrope data, and selective yellow make bakery administration feel clear and approachable. The original KneadIt logo and bakery photography keep the identity recognizable; borders and practical controls give the work structure.\n\nThis record describes the implemented source, not a proposed comp: `source/index.blade.php`, `source/css/marketing.css`, and `source/js/marketing.mjs`, informed by `PRODUCT.md`. The user delegated the redesign and accepted its direction; there is no approved raster comp or claim of final user approval or production deployment. The finish review's five material findings were fixed and received a SHIP verdict on those fixes, not a new whole-surface review. Page strategy and composition remain in `.impeccable/surfaces/source-index-blade-php.md`.",
     "keyCharacteristics": [
-      "Warm tonal sections and restrained borders.",
-      "One self-hosted type family with bold, tightly spaced headings.",
-      "Original branding, generated illustrative bakery photos, and a usable costing example."
+      "Clear neutral surfaces with yellow reserved for actions, selection, and results.",
+      "Expressive self-hosted headings paired with compact, readable working data.",
+      "Original branding, labeled illustrations, flat panels, and visible keyboard feedback."
     ],
     "rules": [
-      { "name": "The Reduced Motion Rule", "body": "When reduced motion is requested, disable transitions and use automatic scrolling instead of smooth scrolling.", "section": "elevation" }
+      {
+        "name": "The Selective Yellow Rule",
+        "body": "Use yellow for actions, selection, and results; keep large surrounding surfaces neutral.",
+        "section": "colors"
+      },
+      {
+        "name": "The Control Boundary Rule",
+        "body": "Use control for interactive boundaries and line for content dividers.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Use Bricolage for headings and prominent totals; use Manrope for explanations, controls, and working data.",
+        "section": "typography"
+      },
+      {
+        "name": "The Reduced Motion Rule",
+        "body": "Disable transitions and animations and use automatic scrolling when reduced motion is requested.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do preserve the original KneadIt logo and the self-hosted Manrope family.",
-      "Do keep focus indicators, visible field labels, reduced-motion handling, and non-JavaScript fallbacks.",
-      "Do label generated imagery and calculator examples honestly; keep application behavior outside the static landing page."
+      "Do preserve the original KneadIt logo and the self-hosted Bricolage/Manrope pairing.",
+      "Do distinguish interactive control borders from quiet content dividers.",
+      "Do retain visible labels, keyboard focus, reduced motion, and usable non-JavaScript fallbacks.",
+      "Do identify illustrative workflows and generated photographs honestly and retain asset provenance."
     ],
     "donts": [
-      "Don't reintroduce the stale paper-and-forest / DM Sans direction as the current system.",
-      "Don't imply customer endorsement, verified earnings, comp approval, or deployment from this documentation."
+      "Don't restore the retired butter-and-cocoa palette or single-family heading treatment.",
+      "Don't replace SVG icons with text glyphs or present examples as genuine product captures.",
+      "Don't infer customer endorsement, final user approval, or deployment from this record."
     ]
   }
 }

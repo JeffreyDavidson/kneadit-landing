@@ -1,5 +1,7 @@
 # KneadIt Marketing Design Research
 
+> Historical research, retained for context. The September 2026 working-week redesign supersedes the palette, hero, and implementation recommendations below. See `DESIGN.md` for the implemented visual system and `README.md` for current behavior and verification.
+
 ## Direction
 
 KneadIt should market itself as the operating system for a cottage bakery, not as another storefront template. The strongest story is the shift from scattered, improvised business work to one calm daily rhythm: capture the order, prepare the bake, collect payment, keep the customer close, and know the margin.
