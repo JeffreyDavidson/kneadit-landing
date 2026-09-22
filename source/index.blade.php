@@ -16,7 +16,14 @@ description: KneadIt gives cottage home bakers one calm place to manage orders, 
     <meta property="og:description" content="{{ $page->description }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://getkneadit.app/" />
-    <meta property="og:image" content="images/og.svg" />
+    <meta property="og:site_name" content="KneadIt" />
+    <meta property="og:image" content="https://getkneadit.app/images/og.svg" />
+    <meta property="og:image:alt" content="KneadIt — the business behind the bake" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ $page->title }}" />
+    <meta name="twitter:description" content="{{ $page->description }}" />
+    <meta name="twitter:image" content="https://getkneadit.app/images/og.svg" />
+    <meta name="twitter:image:alt" content="KneadIt — the business behind the bake" />
     <link rel="icon" href="images/logo-icon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +32,23 @@ description: KneadIt gives cottage home bakers one calm place to manage orders, 
         rel="stylesheet"
     />
     <link rel="stylesheet" href="css/marketing.css" />
+    <script type="application/ld+json">
+        {
+            "@@context": "https://schema.org",
+            "@@type": "SoftwareApplication",
+            "name": "KneadIt",
+            "url": "https://getkneadit.app/",
+            "description": "{{ $page->description }}",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "image": "https://getkneadit.app/images/og.svg",
+            "publisher": {
+                "@@type": "Organization",
+                "name": "KneadIt",
+                "url": "https://getkneadit.app/"
+            }
+        }
+    </script>
 
 </head>
 <body>
