@@ -3,6 +3,7 @@
 return [
     'production' => false,
     'baseUrl' => '',
+    'applicationUrl' => getenv('APPLICATION_URL') ?: 'https://app.getkneadit.app',
     'assetVersion' => substr(hash('sha256',
         file_get_contents(__DIR__.'/source/css/marketing.css')
         .file_get_contents(__DIR__.'/source/js/marketing.mjs')

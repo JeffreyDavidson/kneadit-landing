@@ -186,7 +186,7 @@ if (typeof document !== 'undefined') {
         status.textContent = '';
 
         try {
-            const response = await fetch('https://app.getkneadit.app/contact-us', {
+            const response = await fetch(window.applicationUrl + '/contact-us', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
                 body: JSON.stringify(Object.fromEntries(new FormData(contactForm))),
