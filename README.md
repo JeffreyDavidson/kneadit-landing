@@ -9,9 +9,11 @@ site without Laravel or the KneadIt application runtime.
 The design follows “Your bakery, ready for the week”: self-hosted Bricolage
 Grotesque and Manrope, selective yellow, an interactive pickup-week example,
 and responsive bakery imagery. Visual rules live in [`DESIGN.md`](DESIGN.md)
-and [`.impeccable/design.json`](.impeccable/design.json). It has not been deployed.
+and [`.impeccable/design.json`](.impeccable/design.json). The site is deployed
+to production and staging through Laravel Forge.
 Listed plan prices and features were reconciled with the local application's
-`config/kneadit.php` on 2026-09-22. Confirm deployed billing before publication.
+`config/kneadit.php` on 2026-09-22. Confirm deployed billing before changing
+the public pricing copy.
 
 ## Local preview
 
@@ -100,11 +102,16 @@ The versioned deployment script and DNS/SSL expectations are documented in
 The production marketing site is published at
 https://getkneadit.app/.
 
+The staging marketing site is published at
+https://staging.getkneadit.app/.
+
 ## Application links
 
-The current static page points registration, resources, directory, legal pages,
-and contact submission to `https://app.getkneadit.app`. Update those URLs when the
-production application and landing-site domains are finalized.
+The production static page points registration, resources, directory, legal
+pages, and contact submission to `https://app.getkneadit.app`. The staging build
+automatically points those links to `https://app.staging.getkneadit.app` using
+Forge's `FORGE_SITE_PATH` environment variable; an explicit `APPLICATION_URL`
+value overrides that behavior when needed.
 
 ## Source boundary
 
