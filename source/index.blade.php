@@ -8,29 +8,23 @@ description: KneadIt gives cottage home bakers one calm place to manage orders, 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $page->title }}</title>
-    <meta
-        name="description"
-        content="{{ $page->description }}"
-    />
+    <meta name="description" content="{{ $page->description }}" />
+    <link rel="canonical" href="https://getkneadit.app/" />
     <meta property="og:title" content="{{ $page->title }}" />
     <meta property="og:description" content="{{ $page->description }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://getkneadit.app/" />
     <meta property="og:site_name" content="KneadIt" />
     <meta property="og:image" content="https://getkneadit.app/images/og.svg" />
-    <meta property="og:image:alt" content="KneadIt — the business behind the bake" />
+    <meta property="og:image:alt" content="KneadIt: the business behind the bake" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{{ $page->title }}" />
     <meta name="twitter:description" content="{{ $page->description }}" />
     <meta name="twitter:image" content="https://getkneadit.app/images/og.svg" />
-    <meta name="twitter:image:alt" content="KneadIt — the business behind the bake" />
+    <meta name="twitter:image:alt" content="KneadIt: the business behind the bake" />
+    <meta name="theme-color" content="#f7ce69" />
     <link rel="icon" href="images/logo-icon.png" type="image/png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
-        rel="stylesheet"
-    />
+    <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="css/marketing.css" />
     <script type="application/ld+json">
         {
@@ -49,461 +43,167 @@ description: KneadIt gives cottage home bakers one calm place to manage orders, 
             }
         }
     </script>
-
 </head>
 <body>
-    <nav class="site-nav" id="siteNav">
-        <a href="#top" class="nav-brand"><img src="images/logo-transparent.png" alt="KneadIt" /></a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-expanded="false">
-            <span></span><span></span>
-        </button>
-        <div class="nav-links" id="navLinks">
-            <a href="#how-it-works">How it works</a><a href="#features">Features</a><a href="#pricing">Pricing</a
-            ><a href="https://app.getkneadit.app/resources">Resources</a
-            ><a href="https://app.getkneadit.app/register" class="button button-small">Start free</a>
+    <!-- THESIS: A working bakery journal, not scattered notes or an invented dashboard.
+    OWN-WORLD: Butter-yellow fields, cocoa ink, generous Manrope type, simple rounded controls and tactile bakery photography.
+    STORY: Recognize your kitchen; understand connected bakery work; explore a real costing example; choose a plan.
+    FIRST VIEWPORT: A two-line promise and signup action on the left; a tall, unadorned packing photograph on the right. The costing calculator is the signature interaction; motion is limited to control feedback.
+    FORM: Bakery journal, grounded candidate 7, seed 4d093676. Code-led implementation following the user's direction to proceed.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance -->
+    <a class="skip-link" href="#top">Skip to content</a>
+    <header class="site-header">
+        <nav class="site-nav wrap" aria-label="Main navigation">
+            <a href="#top" class="brand"><img src="images/logo-transparent.png" alt="KneadIt" width="967" height="233" /></a>
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+            <div class="nav-links" id="navLinks">
+                <a href="#how-it-works">How it works</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="https://app.getkneadit.app/resources">Resources</a>
+                <a href="https://app.getkneadit.app/register" class="button button-small">Start free</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="top" tabindex="-1">
+        <section class="hero">
+            <div class="hero-inner wrap">
+                <div class="hero-copy">
+                    <h1>More baking.<br />Less juggling.</h1>
+                    <p class="hero-lede">Business software for home bakers. Bring your orders, recipes, customers, and payments together in KneadIt.</p>
+                    <div class="hero-actions">
+                        <a href="https://app.getkneadit.app/register" class="button">Start your free trial</a>
+                        <a href="#how-it-works" class="text-link">See how it works</a>
+                    </div>
+                </div>
+                <figure class="hero-photo">
+                    <img src="images/baker-packing.webp" srcset="images/baker-packing-small.webp 640w, images/baker-packing.webp 1122w" sizes="(max-width: 760px) 100vw, 46vw" alt="A home baker carefully packing flower-shaped cookies into a bakery box" width="1122" height="1402" fetchpriority="high" />
+                </figure>
+            </div>
+        </section>
+
+        <div class="trial-strip">
+            <div class="wrap"><p>A little room to get organized.</p><p><strong>30 days free.</strong> No credit card required.</p><a href="#pricing">Plans from $9/month</a></div>
         </div>
-    </nav>
 
-    <main id="top">
-        <section class="hero section-dark">
-            <div class="hero-copy reveal">
-                <p class="eyebrow">For the baker behind the business</p>
-                <h1>
-                    Your bakery.
-                    <span class="name-line"
-                        ><input
-                            id="bakeryNameInput"
-                            aria-label="Your bakery name"
-                            placeholder="Name it"
-                            autocomplete="off"
-                        /><em>your way.</em></span>
-                </h1>
-                <p class="hero-lede">
-                    KneadIt keeps the orders, money, customers, and moving parts in one place — so your home bakery can
-                    grow without the scramble.
-                </p>
-                <div class="hero-actions">
-                    <a href="https://app.getkneadit.app/register" class="button">Start your free trial</a
-                    ><a href="#how-it-works" class="text-link">See how it works <span aria-hidden="true">↘</span></a>
-                </div>
-                <p class="hero-note">30 days free · No credit card required</p>
+        <section class="section wrap workflow" id="how-it-works" aria-labelledby="workflow-title">
+            <div class="section-heading">
+                <h2 id="workflow-title">A home for everything<br />behind the homemade.</h2>
+                <p>You bring the recipes. KneadIt helps connect the orders, the customers, and the numbers that keep your bakery going.</p>
             </div>
-            <div class="hero-art reveal reveal-delay" aria-label="Illustration of a bakery operations dashboard">
-                <div class="art-caption">
-                    <span class="status-dot"></span> Monday, 5:30 AM <strong>Good morning, Maya</strong>
+            <div class="workflow-grid">
+                <article><h3>Take the order.</h3><p>Give customers a storefront and keep their order, pickup details, and preferences together.</p><a href="#features">Storefronts &amp; customers</a></article>
+                <article><h3>Keep it moving.</h3><p>Follow each order from confirmed to delivered, with invoices and payment tracking close at hand.</p><a href="#features">Orders &amp; payments</a></article>
+                <article><h3>Know your numbers.</h3><p>Cost your recipes, track your finances, and understand what each bake contributes to your business.</p><a href="#costing">Try a costing example</a></article>
+            </div>
+        </section>
+
+        <section class="features-section" id="features" aria-labelledby="features-title">
+            <div class="wrap feature-layout">
+                <div class="feature-photo">
+                    <img src="images/sourdough-table.webp" alt="Homemade sourdough loaves, flour, and a bench scraper on a wooden worktable" width="1536" height="1024" loading="lazy" decoding="async" />
+                    <p>You make something worth coming back for.</p>
                 </div>
-                <div class="dashboard-window">
-                    <div class="window-top">
-                        <span class="window-brand">KneadIt</span><span class="window-date">Today · Oct 14</span>
-                    </div>
-                    <div class="dashboard-main">
-                        <div class="dashboard-heading">
-                            <div>
-                                <span class="muted">YOUR BAKERY</span>
-                                <h2>Today at a glance</h2>
-                            </div>
-                            <span class="mini-avatar">M</span>
-                        </div>
-                        <div class="dashboard-stats">
-                            <div><span>Orders</span><strong>12</strong><small>3 ready today</small></div>
-                            <div>
-                                <span>Revenue</span><strong>$428</strong><small class="positive">↑ 18% this week</small>
-                            </div>
-                            <div><span>To prep</span><strong>34</strong><small>items across 8 orders</small></div>
-                        </div>
-                        <div class="dashboard-columns">
-                            <div class="order-list">
-                                <div class="list-title">Next up <span>View all</span></div>
-                                <div class="order-row">
-                                    <i class="avatar avatar-coral">E</i>
-                                    <div><b>Emma Wilson</b><small>Sourdough · 2 loaves</small></div>
-                                    <em>9:30 AM</em>
-                                </div>
-                                <div class="order-row">
-                                    <i class="avatar avatar-yellow">J</i>
-                                    <div><b>Jordan Lee</b><small>Cinnamon rolls · 1 dozen</small></div>
-                                    <em>11:00 AM</em>
-                                </div>
-                                <div class="order-row">
-                                    <i class="avatar avatar-green">R</i>
-                                    <div><b>Riley Carter</b><small>Focaccia · 2 trays</small></div>
-                                    <em>2:00 PM</em>
-                                </div>
-                            </div>
-                            <div class="profit-panel">
-                                <div class="list-title">This month</div>
-                                <strong>$2,840</strong><small>profit after costs</small>
-                                <div class="bars">
-                                    <i style="height: 38%"></i><i style="height: 56%"></i><i style="height: 44%"></i
-                                    ><i style="height: 72%"></i><i style="height: 61%"></i><i style="height: 88%"></i
-                                    ><i style="height: 78%"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-counter" aria-label="Bakery counter showing work being organized by KneadIt">
-                    <div class="counter-topline">
-                        <span class="counter-label">Your kitchen counter</span
-                        ><span class="counter-time">5:30 AM → 8:00 PM</span>
-                    </div>
-                    <div class="counter-paper paper-order">
-                        <span class="paper-pin"></span><b>ORDER #1042</b><strong>Sourdough · 2 loaves</strong
-                        ><small>Emma W. · Saturday pickup</small>
-                    </div>
-                    <div class="counter-paper paper-recipe">
-                        <span class="paper-pin"></span><b>RECIPE COSTING</b><strong>Chocolate chip cookies</strong
-                        ><small>Ingredients + labor · $18.40 margin</small>
-                    </div>
-                    <div class="counter-paper paper-payment">
-                        <span class="paper-pin"></span><b>PAYMENT RECEIVED</b><strong>$42.00 · Emma W.</strong
-                        ><small>Invoice sent automatically</small>
-                    </div>
-                    <div class="counter-handnote">The business behind the bake, <em>handled.</em></div>
-                    <div class="counter-spotlight">
-                        <span></span><b>KneadIt</b><small>one calm place for it all</small>
+                <div class="feature-copy">
+                    <h2 id="features-title">Make the business<br />part feel easier.</h2>
+                    <div class="feature-details">
+                        <article><h3>Your storefront. Your customers.</h3><p>A place for customers to order, with the details you need to make their next bake feel personal.</p></article>
+                        <article><h3>Every order, accounted for.</h3><p>Keep order statuses, invoices, and payments connected. Spend less time chasing the details through messages.</p></article>
+                        <article><h3>Recipes that make business sense.</h3><p>Bring recipe costing and finance tracking together, so your pricing starts with your numbers.</p></article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="proof-strip">
-            <p>Built for the part of baking nobody sees</p>
-            <div>
-                <span>Orders</span><span>Customers</span><span>Recipes</span><span>Invoices</span><span>Profit</span>
+        <section class="section wrap costing-layout" id="costing" aria-labelledby="costing-title">
+            <div class="costing-copy">
+                <h2 id="costing-title">Great cookies. <br />What about <br />the margin?</h2>
+                <p>The price on the box is only part of the story. Try this simple batch example to see how costs add up.</p>
+                <p class="small-note">An illustrative calculator, not a screenshot of the app. KneadIt brings recipe costing into your bakery workflow.</p>
             </div>
-        </section>
-
-        <section class="scattered-section section">
-            <div class="scattered-heading reveal">
-                <p class="eyebrow">The shift</p>
-                <h2>When the business stops living in your head.</h2>
-                <p>Bring the small details together before they become the big things you forgot.</p>
-            </div>
-            <div class="scattered-stage reveal reveal-delay">
-                <div class="scattered-notes">
-                    <div class="scatter-note note-message">
-                        <span class="note-pin"></span><b>Customer message</b>
-                        <p>“Can I pick up Saturday?”</p>
-                        <small>Instagram · 8:42 AM</small>
+            <form class="costing-form" id="costingForm" aria-label="Illustrative batch costing calculator">
+                <div class="calculator-heading"><h3>Try a batch</h3><span>Chocolate chip cookies</span></div>
+                <fieldset>
+                    <legend>What goes into it</legend>
+                    <div class="cost-inputs">
+                        <label for="ingredients">Ingredients <span class="input-unit"><span aria-hidden="true">$</span><input id="ingredients" name="ingredients" aria-label="Ingredients cost in dollars" type="number" min="0" max="100000" step="0.01" value="12.40" required /></span></label>
+                        <label for="labor">Labor <span class="input-unit"><span aria-hidden="true">$</span><input id="labor" name="labor" aria-label="Labor cost in dollars" type="number" min="0" max="100000" step="0.01" value="18.00" required /></span></label>
+                        <label for="packaging">Packaging <span class="input-unit"><span aria-hidden="true">$</span><input id="packaging" name="packaging" aria-label="Packaging cost in dollars" type="number" min="0" max="100000" step="0.01" value="3.60" required /></span></label>
                     </div>
-                    <div class="scatter-note note-recipe">
-                        <span class="note-pin"></span><b>Recipe notes</b>
-                        <p>Flour · butter · sugar<br />Yield: 2 dozen</p>
-                        <small>Notes · yesterday</small>
+                    <div class="batch-inputs">
+                        <label for="quantity">Cookies in the batch <input id="quantity" name="quantity" type="number" min="1" max="10000" step="1" value="24" required /></label>
+                        <label for="price">Price per cookie <span class="input-unit"><span aria-hidden="true">$</span><input id="price" name="price" aria-label="Price per cookie in dollars" type="number" min="0" max="100000" step="0.01" value="2.50" required /></span></label>
                     </div>
-                    <div class="scatter-note note-payment">
-                        <span class="note-pin"></span><b>Payment follow-up</b>
-                        <p>Emma Wilson · $42</p>
-                        <small>Remember to send</small>
-                    </div>
+                </fieldset>
+                <div class="costing-results" aria-live="polite" aria-atomic="true">
+                    <div><span>Cost per cookie</span><output id="unitCost">$1.42</output></div>
+                    <div><span>Batch profit</span><output id="batchProfit">$26.00</output></div>
+                    <p id="costingNote">$60.00 in sales, less $34.00 in costs.</p>
                 </div>
-                <div class="scatter-arrow" aria-hidden="true">→</div>
-                <div class="sorted-workspace">
-                    <div class="workspace-top">
-                        <span class="workspace-logo">K</span><b>One connected workspace</b
-                        ><span class="workspace-check">✓</span>
-                    </div>
-                    <div class="workspace-row">
-                        <i class="workspace-icon">O</i>
-                        <div><b>Emma Wilson’s order</b><small>Confirmed · Saturday pickup</small></div>
-                        <strong>$42</strong>
-                    </div>
-                    <div class="workspace-row">
-                        <i class="workspace-icon orange">R</i>
-                        <div><b>Chocolate chip cookies</b><small>Costed recipe · 28% margin</small></div>
-                        <strong>Ready</strong>
-                    </div>
-                    <div class="workspace-row">
-                        <i class="workspace-icon yellow">C</i>
-                        <div><b>Customer reminder</b><small>Scheduled for Friday</small></div>
-                        <strong>Sent</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section light-section" id="how-it-works">
-            <div class="section-intro reveal">
-                <p class="eyebrow">A day with your bakery</p>
-                <h2>From first light to final number.</h2>
-                <p>
-                    There is a lot to hold in your head when you run a bakery from home. KneadIt gives every part of the
-                    day a place to land.
-                </p>
-            </div>
-            <div class="rhythm-grid">
-                <article class="rhythm-feature reveal">
-                    <span class="step">5:30 AM · SEE THE DAY</span>
-                    <h3>Start with a clear day.</h3>
-                    <p>See what is due, what needs prepping, and who is picking up — before the oven is on.</p>
-                    <div class="mini-board">
-                        <div class="board-head"><b>Tuesday, October 15</b><span>12 orders</span></div>
-                        <div class="board-line">
-                            <span class="check checked">✓</span><b>Prep sourdough</b><small>6:00 AM</small>
-                        </div>
-                        <div class="board-line">
-                            <span class="check"> </span><b>Package Emma's order</b><small>9:15 AM</small>
-                        </div>
-                        <div class="board-line">
-                            <span class="check"> </span><b>Send pickup reminder</b><small>1:00 PM</small>
-                        </div>
-                    </div>
-                </article>
-                <article class="rhythm-note reveal reveal-delay">
-                    <span class="step">9:00 AM · MOVE THE WORK</span>
-                    <h3>Keep the handoffs moving.</h3>
-                    <p>
-                        Orders, payments, and customer notes stay connected as the work moves from confirmed to
-                        delivered.
-                    </p>
-                    <div class="flow">
-                        <span class="done">Confirmed</span><span class="arrow">→</span
-                        ><span class="current">Baking</span><span class="arrow">→</span><span>Ready</span>
-                    </div>
-                    <div class="flow-line"><i></i></div>
-                </article>
-                <article class="rhythm-note accent-note reveal">
-                    <span class="step">8:00 PM · KNOW YOUR NUMBERS</span>
-                    <h3>Know what was worth it.</h3>
-                    <p>Cost every recipe, track the money, and finish the day knowing where your bakery stands.</p>
-                    <div class="margin">
-                        <span>Chocolate chip cookies</span><strong>$18.40 <small>margin</small></strong>
-                        <div><i style="width: 72%"></i></div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="statement section-dark">
-            <div class="statement-mark"><img src="images/mascot.svg" alt="" /></div>
-            <div class="statement-copy reveal">
-                <p class="eyebrow">The calm behind the craft</p>
-                <h2>You already know how to make something people love. KneadIt helps you run it like a business.</h2>
-                <p>
-                    No spreadsheets stitched together with hope. No digging through messages to find an order. Just a
-                    clear home for the work behind every loaf, cake, and cookie box.
-                </p>
-            </div>
-        </section>
-
-        <section class="section feature-section" id="features">
-            <div class="feature-heading reveal">
-                <p class="eyebrow">One home for your bakery</p>
-                <h2>Less business admin.<br /><em>More baking.</em></h2>
-            </div>
-            <div class="feature-list">
-                <div class="feature-item reveal">
-                    <span>01</span>
-                    <div>
-                        <h3>Take orders without the back-and-forth</h3>
-                        <p>
-                            Give customers a polished storefront and keep every order, pickup detail, and status
-                            together.
-                        </p>
-                    </div>
-                    <div class="feature-icon storefront-icon">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-                <div class="feature-item reveal">
-                    <span>02</span>
-                    <div>
-                        <h3>Price recipes with confidence</h3>
-                        <p>Know what each bake costs to make and what it contributes to your bottom line.</p>
-                    </div>
-                    <div class="feature-icon recipe-icon"><b>$</b><i></i><i></i><i></i></div>
-                </div>
-                <div class="feature-item reveal">
-                    <span>03</span>
-                    <div>
-                        <h3>Stay close to your customers</h3>
-                        <p>Remember preferences, send updates, and make the next order feel personal.</p>
-                    </div>
-                    <div class="feature-icon customer-icon"><i>A</i><i>M</i><i>J</i></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="pricing-section section" id="pricing">
-            <div class="pricing-intro reveal">
-                <p class="eyebrow">Simple, honest pricing</p>
-                <h2>Choose the room<br />your bakery needs.</h2>
-                <p>Every plan includes a 30-day free trial. No percentage of your sales, ever.</p>
-            </div>
-            <div class="pricing-cards">
-                <article class="price-card">
-                    <h3>Starter</h3>
-                    <p>For getting your bakery organized.</p>
-                    <strong>$9<small>/month</small></strong>
-                    <ul>
-                        <li>Order management</li>
-                        <li>Customer storefront</li>
-                        <li>Recipe costing</li>
-                    </ul>
-                    <a href="https://app.getkneadit.app/register" class="button button-outline">Start free</a>
-                </article>
-                <article class="price-card featured-price">
-                    <span class="price-tag">Most popular</span>
-                    <h3>Growth</h3>
-                    <p>For bakers ready to build momentum.</p>
-                    <strong>$19<small>/month</small></strong>
-                    <ul>
-                        <li>Everything in Starter</li>
-                        <li>Invoicing and payment tracking</li>
-                        <li>Finance and profit insights</li>
-                    </ul>
-                    <a href="https://app.getkneadit.app/register" class="button">Start free</a>
-                </article>
-                <article class="price-card">
-                    <h3>Pro</h3>
-                    <p>For a bakery with more to manage.</p>
-                    <strong>$39<small>/month</small></strong>
-                    <ul>
-                        <li>Everything in Growth</li>
-                        <li>Marketing and customer tools</li>
-                        <li>Advanced bakery workflows</li>
-                    </ul>
-                    <a href="https://app.getkneadit.app/register" class="button button-outline">Start free</a>
-                </article>
-            </div>
-        </section>
-
-        <section class="faq-section section" id="faq">
-            <div class="faq-intro reveal">
-                <p class="eyebrow">Questions, answered</p>
-                <h2>A few things you might be wondering.</h2>
-            </div>
-            <div class="faq-list">
-                <details open>
-                    <summary>Is KneadIt only for home bakers?</summary>
-                    <p>
-                        It is built specifically for cottage food and home bakery businesses — the kind run from your
-                        own kitchen, on your own schedule.
-                    </p>
-                </details>
-                <details>
-                    <summary>Do I need to install anything?</summary>
-                    <p>
-                        No. KneadIt runs in your browser on your phone, tablet, or laptop. There is no special hardware
-                        or app to install.
-                    </p>
-                </details>
-                <details>
-                    <summary>Does KneadIt take a percentage of my sales?</summary>
-                    <p>
-                        No. KneadIt is a flat monthly subscription. Your customers pay you directly, and you keep your
-                        bakery revenue.
-                    </p>
-                </details>
-                <details>
-                    <summary>Can I try it before I commit?</summary>
-                    <p>Yes. Every plan starts with a 30-day free trial, and no credit card is required.</p>
-                </details>
-            </div>
-        </section>
-
-        <section class="contact-section section-dark" id="contact">
-            <div class="contact-copy reveal">
-                <p class="eyebrow">Still curious?</p>
-                <h2>Bring us the messy middle.</h2>
-                <p>
-                    Tell us what is making the business side feel harder than it should. We are bakers too, and we would
-                    love to help.
-                </p>
-                <p class="contact-email">hello@getkneadit.app</p>
-            </div>
-            <form class="contact-form reveal" id="contactForm" onsubmit="return handleContact(event);">
-                <label for="contactName">Your name</label><input id="contactName" name="name" required /><label
-                    for="contactEmail"
-                    >Email address</label
-                ><input id="contactEmail" name="email" type="email" required /><label for="contactMessage"
-                    >What is on your mind?</label
-                ><textarea id="contactMessage" name="message" rows="4" required></textarea
-                ><button class="button contact-submit" type="submit">Send message</button>
+                <p class="calculator-note">Example only. Does not include taxes, fees, or other overhead.</p>
+                <noscript><p>Enable JavaScript to update this example with your own numbers.</p></noscript>
             </form>
         </section>
 
-        <section class="final-cta section-dark">
-            <p class="eyebrow">Make the next bake easier</p>
-            <h2>Your bakery deserves<br /><em>a little more room.</em></h2>
+        <section class="pricing-section section" id="pricing" aria-labelledby="pricing-title">
+            <div class="wrap">
+                <div class="section-heading centered"><h2 id="pricing-title">A plan for your kind of bakery.</h2><p>Every plan starts with 30 days free.<br />A flat monthly price. No percentage of your sales.</p></div>
+                <div class="pricing-grid">
+                    <article class="price-card">
+                        <h3>Starter</h3><p>For getting your bakery organized.</p><p class="price">$9<span>/month</span></p>
+                        <a href="https://app.getkneadit.app/register" class="button button-outline" aria-label="Start free with Starter">Start free</a>
+                        <ul><li>Order management</li><li>Customer storefront</li><li>Recipe costing</li></ul>
+                    </article>
+                    <article class="price-card featured-price">
+                        <h3>Growth</h3><p>For bakers ready to build momentum.</p><p class="price">$19<span>/month</span></p>
+                        <a href="https://app.getkneadit.app/register" class="button" aria-label="Start free with Growth">Start free</a>
+                        <ul><li>Everything in Starter</li><li>Invoicing and payment tracking</li><li>Finance and profit insights</li></ul>
+                    </article>
+                    <article class="price-card">
+                        <h3>Pro</h3><p>For a bakery with more to manage.</p><p class="price">$39<span>/month</span></p>
+                        <a href="https://app.getkneadit.app/register" class="button button-outline" aria-label="Start free with Pro">Start free</a>
+                        <ul><li>Everything in Growth</li><li>Marketing and customer tools</li><li>Advanced bakery workflows</li></ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section wrap faq-section" id="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">Good questions.</h2>
+            <div class="faq-list">
+                <details open><summary>Is KneadIt only for home bakers?</summary><p>It is built specifically for cottage food and home bakery businesses, the kind run from your own kitchen, on your own schedule.</p></details>
+                <details><summary>Do I need to install anything?</summary><p>No. KneadIt runs in your browser on your phone, tablet, or laptop. There is no special hardware or app to install.</p></details>
+                <details><summary>Does KneadIt take a percentage of my sales?</summary><p>No. KneadIt is a flat monthly subscription. Your customers pay you directly, and you keep your bakery revenue.</p></details>
+                <details><summary>Can I try it before I commit?</summary><p>Yes. Every plan starts with a 30-day free trial, and no credit card is required.</p></details>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="wrap contact-layout">
+                <div><h2 id="contact-title">Let's talk bakery.</h2><p>Have a question about making KneadIt part of your day? Tell us what you need a hand with.</p><a class="text-link" href="mailto:hello@getkneadit.app">hello@getkneadit.app</a></div>
+                <form class="contact-form" id="contactForm">
+                    <div class="contact-fields"><div><label for="contactName">Your name</label><input id="contactName" name="name" autocomplete="name" required /></div><div><label for="contactEmail">Email address</label><input id="contactEmail" name="email" type="email" autocomplete="email" required /></div></div>
+                    <label for="contactMessage">What is on your mind?</label><textarea id="contactMessage" name="message" rows="4" required></textarea>
+                    <button class="button" type="submit">Send message</button>
+                    <p class="form-status" id="contactStatus" role="status" aria-live="polite"></p>
+                    <noscript><p>To send a message without JavaScript, email <a href="mailto:hello@getkneadit.app">hello@getkneadit.app</a>.</p></noscript>
+                </form>
+            </div>
+        </section>
+
+        <section class="final-cta wrap" aria-labelledby="cta-title">
+            <h2 id="cta-title">Here's to your next batch.</h2>
             <a href="https://app.getkneadit.app/register" class="button">Start your free trial</a>
-            <p class="hero-note">30 days free · No credit card required</p>
+            <p>30 days free. No credit card required.</p>
         </section>
     </main>
-    <footer>
-        <a href="#top" class="footer-brand"><img src="images/logo-transparent.png" alt="KneadIt" /></a>
-        <div class="footer-links">
-            <a href="https://app.getkneadit.app/resources">Resources</a><a href="https://app.getkneadit.app/directory">Find a bakery</a
-            ><a href="https://app.getkneadit.app/privacy">Privacy</a><a href="https://app.getkneadit.app/terms">Terms</a>
-        </div>
+    <footer class="wrap site-footer">
+        <a href="#top" class="brand"><img src="images/logo-transparent.png" alt="KneadIt" width="967" height="233" loading="lazy" /></a>
+        <div class="footer-links"><a href="https://app.getkneadit.app/resources">Resources</a><a href="https://app.getkneadit.app/directory">Find a bakery</a><a href="https://app.getkneadit.app/privacy">Privacy</a><a href="https://app.getkneadit.app/terms">Terms</a></div>
         <p>© 2026 KneadIt · Created by Infinity Digital</p>
+        <label class="theme-control" for="appearance">Appearance <select id="appearance"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
     </footer>
-    <script>
-        const nav = document.getElementById('siteNav');
-        const toggle = document.getElementById('navToggle');
-        const links = document.getElementById('navLinks');
-        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 24));
-        toggle.addEventListener('click', () => {
-            const open = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!open));
-            links.classList.toggle('open', !open);
-        });
-        links.querySelectorAll('a').forEach((link) =>
-            link.addEventListener('click', () => {
-                toggle.setAttribute('aria-expanded', 'false');
-                links.classList.remove('open');
-            }),
-        );
-        const bakeryInput = document.getElementById('bakeryNameInput');
-        bakeryInput.addEventListener('input', () =>
-            bakeryInput.classList.toggle('has-value', bakeryInput.value.trim().length > 0),
-        );
-        const observer = new IntersectionObserver(
-            (entries) =>
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                }),
-            { threshold: 0.12 },
-        );
-        document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-        function handleContact(event) {
-            event.preventDefault();
-            const form = event.target;
-            const button = form.querySelector('button');
-            button.disabled = true;
-            button.textContent = 'Sending…';
-            fetch('https://app.getkneadit.app/contact-us', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Accept: 'application/json',
-                },
-                body: JSON.stringify({ name: form.name.value, email: form.email.value, message: form.message.value }),
-            })
-                .then((response) => {
-                    if (!response.ok) throw new Error();
-                    return response.json();
-                })
-                .then(() => {
-                    button.textContent = 'Message sent';
-                    form.reset();
-                    setTimeout(() => {
-                        button.textContent = 'Send message';
-                        button.disabled = false;
-                    }, 3500);
-                })
-                .catch(() => {
-                    button.textContent = 'Try again';
-                    button.disabled = false;
-                });
-            return false;
-        }
-    </script>
+    <script type="module" src="js/marketing.mjs"></script>
 </body>
 </html>
