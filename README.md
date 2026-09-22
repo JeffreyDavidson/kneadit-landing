@@ -23,6 +23,12 @@ php -S localhost:8080 -t public
 Jigsaw source files live in `source/`; `public/` contains the deployable build
 output.
 
+## Deployment
+
+Laravel Forge deploys the production and staging sites through Cloudflare.
+The versioned deployment script and DNS/SSL expectations are documented in
+[`docs/deployment.md`](docs/deployment.md).
+
 The production marketing site is published at
 https://getkneadit.app/.
 
