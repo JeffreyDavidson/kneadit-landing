@@ -21,7 +21,8 @@ php -S localhost:8080 -t public
 ```
 
 Jigsaw source files live in `source/`; `public/` contains the deployable build
-output.
+output. The generated `public/` output is committed so Forge can deploy it with
+the same Composer-only deployment flow used by the Ringside landing site.
 
 ## Deployment
 
