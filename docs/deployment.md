@@ -11,15 +11,28 @@ Copy its contents into the deployment script for both landing-site Forge sites:
 - Production: `getkneadit.app` (`kneadit-landing-rh87zbrg.on-forge.com`)
 - Staging: `staging.getkneadit.app`
 
-The script uses Forge's `$FORGE_SITE_PATH` and `$FORGE_COMPOSER` variables to
-install the locked Composer dependencies. Like Ringside, this site commits its
-generated `public/` output, so Forge does not rebuild or delete public files
-during deployment. Run `./vendor/bin/jigsaw build production` locally before
-committing a source change. No application migrations, queue workers, or
-runtime services are needed for this static site.
+The script uses Forge's zero-downtime release helpers. It creates a release,
+installs the locked Composer dependencies, builds the production Jigsaw output
+inside `$FORGE_RELEASE_DIRECTORY`, and activates the release. Keep both Forge
+sites on this exact script:
+
+```bash
+$CREATE_RELEASE()
+
+cd $FORGE_RELEASE_DIRECTORY
+
+composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+vendor/bin/jigsaw build production --quiet
+
+$ACTIVATE_RELEASE()
+```
+
+No application migrations, queue workers, or runtime services are needed for
+this static site.
 
 After updating either Forge script, deploy that site and verify the deployment
-log contains the Composer installation before treating it as configured.
+log contains both the Composer installation and the Jigsaw production build
+before treating it as configured.
 
 ## Cloudflare
 
