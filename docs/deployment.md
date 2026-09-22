@@ -12,9 +12,10 @@ Copy its contents into the deployment script for both landing-site Forge sites:
 - Staging: `staging.getkneadit.app`
 
 The script uses Forge's zero-downtime release helpers. It creates a release,
-installs the locked Composer dependencies, builds the production Jigsaw output
-inside `$FORGE_RELEASE_DIRECTORY`, and activates the release. Keep both Forge
-sites on this exact script:
+installs the locked Composer dependencies, selects the application URL for the
+target site, builds the production Jigsaw output inside
+`$FORGE_RELEASE_DIRECTORY`, and activates the release. Keep both Forge sites on
+this exact script:
 
 ```bash
 $CREATE_RELEASE()
@@ -22,6 +23,13 @@ $CREATE_RELEASE()
 cd $FORGE_RELEASE_DIRECTORY
 
 composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+if [[ "$FORGE_SITE_PATH" == *"/staging.getkneadit.app" ]]; then
+    export APPLICATION_URL=https://app.staging.getkneadit.app
+else
+    export APPLICATION_URL=https://app.getkneadit.app
+fi
+
 vendor/bin/jigsaw build production --quiet
 
 $ACTIVATE_RELEASE()
@@ -30,9 +38,11 @@ $ACTIVATE_RELEASE()
 No application migrations, queue workers, or runtime services are needed for
 this static site.
 
-After updating either Forge script, deploy that site and verify the deployment
-log contains both the Composer installation and the Jigsaw production build
-before treating it as configured.
+The landing configuration also derives the staging URL from `FORGE_SITE_PATH`,
+so a staging deployment remains safe if the dashboard script temporarily lacks
+the export above. After updating either Forge script, deploy that site and
+verify the deployment log contains both the Composer installation and the
+Jigsaw production build before treating it as configured.
 
 ## Cloudflare
 
@@ -51,4 +61,9 @@ site; it belongs to `app.getkneadit.app`.
 ```bash
 curl --fail --silent --show-error --location --max-time 20 https://getkneadit.app/ >/dev/null
 curl --fail --silent --show-error --location --max-time 20 https://staging.getkneadit.app/ >/dev/null
+
+curl --fail --silent --show-error --location --max-time 20 https://getkneadit.app/ \
+    | grep -F 'https://app.getkneadit.app/register' >/dev/null
+curl --fail --silent --show-error --location --max-time 20 https://staging.getkneadit.app/ \
+    | grep -F 'https://app.staging.getkneadit.app/register' >/dev/null
 ```
