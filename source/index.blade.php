@@ -1,15 +1,19 @@
+---
+title: KneadIt | Run the business behind the bake
+description: KneadIt gives cottage home bakers one calm place to manage orders, customers, recipes, invoices, storefronts, and profit.
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KneadIt | Run the business behind the bake</title>
+    <title>{{ $page->title }}</title>
     <meta
         name="description"
-        content="KneadIt gives cottage home bakers one calm place to manage orders, customers, recipes, invoices, storefronts, and profit."
+        content="{{ $page->description }}"
     />
-    <meta property="og:title" content="KneadIt | Run the business behind the bake" />
-    <meta property="og:description" content="KneadIt gives cottage home bakers one calm place to manage orders, customers, recipes, invoices, storefronts, and profit." />
+    <meta property="og:title" content="{{ $page->title }}" />
+    <meta property="og:description" content="{{ $page->description }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://getkneadit.app/" />
     <meta property="og:image" content="images/og.svg" />

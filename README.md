@@ -2,17 +2,26 @@
 
 Standalone marketing site for KneadIt, modeled on the Ringside landing project.
 
-This project is intentionally static. It contains the public marketing homepage,
-its stylesheet, and the brand assets needed to deploy the landing site without
-Laravel, Composer, or the KneadIt application runtime.
+This project is a standalone Jigsaw site. It contains the public marketing
+homepage, its stylesheet, and the brand assets needed to deploy the landing
+site without Laravel or the KneadIt application runtime.
 
 ## Local preview
 
-From this directory, serve `public/` with any static file server, for example:
+Build the site with Jigsaw, then serve `public/` with any static file server:
+
+```bash
+./vendor/bin/jigsaw build
+```
+
+For a quick local preview, use:
 
 ```bash
 php -S localhost:8080 -t public
 ```
+
+Jigsaw source files live in `source/`; `public/` contains the deployable build
+output.
 
 The production marketing site is published at
 https://getkneadit.app/.
