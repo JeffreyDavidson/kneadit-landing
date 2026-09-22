@@ -14,3 +14,6 @@ jobs:
     steps:
       - name: Check homepage
         run: curl --fail --silent --show-error --location --max-time 20 --output /dev/null https://getkneadit.app/
+
+      - name: Check staging homepage
+        run: curl --fail --silent --show-error --location --max-time 20 --output /dev/null https://staging.getkneadit.app/
