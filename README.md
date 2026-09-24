@@ -109,7 +109,7 @@ https://staging.getkneadit.app/.
 
 The production static page points registration, resources, directory, legal
 pages, and contact submission to `https://app.getkneadit.app`. The staging build
-automatically points those links to `https://app.staging.getkneadit.app` using
+automatically points those links to `https://app-staging.getkneadit.app` using
 Forge's `FORGE_SITE_PATH` environment variable; an explicit `APPLICATION_URL`
 value overrides that behavior when needed.
 

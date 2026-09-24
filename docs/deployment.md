@@ -25,7 +25,7 @@ cd $FORGE_RELEASE_DIRECTORY
 composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 if [[ "$FORGE_SITE_PATH" == *"/staging.getkneadit.app" ]]; then
-    export APPLICATION_URL=https://app.staging.getkneadit.app
+    export APPLICATION_URL=https://app-staging.getkneadit.app
 else
     export APPLICATION_URL=https://app.getkneadit.app
 fi
@@ -65,5 +65,5 @@ curl --fail --silent --show-error --location --max-time 20 https://staging.getkn
 curl --fail --silent --show-error --location --max-time 20 https://getkneadit.app/ \
     | grep -F 'https://app.getkneadit.app/register' >/dev/null
 curl --fail --silent --show-error --location --max-time 20 https://staging.getkneadit.app/ \
-    | grep -F 'https://app.staging.getkneadit.app/register' >/dev/null
+    | grep -F 'https://app-staging.getkneadit.app/register' >/dev/null
 ```
